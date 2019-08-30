@@ -69,6 +69,7 @@
             this.btnGuardarPersonal.TabIndex = 4;
             this.btnGuardarPersonal.Text = "Guardar Registro";
             this.btnGuardarPersonal.UseVisualStyleBackColor = false;
+            this.btnGuardarPersonal.Click += new System.EventHandler(this.btnGuardarPersonal_Click);
             // 
             // txtCedulaP
             // 
@@ -277,7 +278,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(459, 20);
             this.txtBuscar.TabIndex = 37;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // FormRegistroPersonal
             // 
@@ -307,6 +307,7 @@
             this.Controls.Add(this.btnGuardarPersonal);
             this.Name = "FormRegistroPersonal";
             this.Text = "Registro Personal";
+            this.Load += new System.EventHandler(this.FormRegistroPersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

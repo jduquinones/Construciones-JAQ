@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+ 
+
 
 
 
@@ -17,24 +19,32 @@ namespace Construcciones_JAQ
 {
     public partial class FormRegistroPersonal : Form
     {
+        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
+
         public FormRegistroPersonal()
         {
             InitializeComponent();
-        }
-        
+        }        
 
 
         private void FormRegistroPersonal_Load(object sender, EventArgs e)
         {
-
+            //try
+            //{
+            //    cn.Open();
+            //    MessageBox.Show("La conexion se realizo con exito.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("No se conecto con la base de dato" + ex.ToString());
+            //}
         }
 
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
 
 
         private void btnAgregarP_Click(object sender, EventArgs e)
         {
-            //Adicionar NUevo Renglon
+            //Adicionar Nuevo Renglon
 
             int n = dtgvPersonal.Rows.Add();
 
@@ -95,21 +105,20 @@ namespace Construcciones_JAQ
 
         private void btnGuardarPersonal_Click(object sender, EventArgs e)
         {
-            SqlCommand agregarbd = new SqlCommand("INSERT INTO Personal (Id_Personal,Nombre,Apellido,Telefono,Salario,Correo,Direccion)" +
-                " VALUES (@Id_Personal,@Nombre,@Apellido,@Telefono," +
-                "@Salario,@Correo,@Direccion)", cn);
-            cn.Open();
-
+            SqlCommand agregarbd = new SqlCommand("INSERT INTO Personal (Id_personal, Nombre, Apellido," +
+                "Telefono, Salario, Correo, Direccion) VALUES (@CedulaP, @Nombre, @Apellido, " +
+                "@Telefono, @Salario, @Correo, @Direccion)",cn);
+            cn.Open();      
             try
             {                
                 foreach(DataGridViewRow row in dtgvPersonal.Rows)
                 {
                     agregarbd.Parameters.Clear();
-                    agregarbd.Parameters.AddWithValue("@Id_Personal", Convert.ToInt32(row.Cells["CedulaP"].Value));
+                    agregarbd.Parameters.AddWithValue("@CedulaP", Convert.ToInt32( row.Cells["CedulaP"].Value));
                     agregarbd.Parameters.AddWithValue("@Nombre", Convert.ToString(row.Cells["NombreP"].Value));
                     agregarbd.Parameters.AddWithValue("@Apellido", Convert.ToString(row.Cells["ApellidoP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Telefono", Convert.ToDouble(row.Cells["TelefonoP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Salario", Convert.ToInt32(row.Cells["SalarioP"].Value));
+                    agregarbd.Parameters.AddWithValue("@Telefono", Convert.ToInt64(row.Cells["TelefonoP"].Value));
+                    agregarbd.Parameters.AddWithValue("@Salario", Convert.ToInt64(row.Cells["SalarioP"].Value));
                     agregarbd.Parameters.AddWithValue("@Correo", Convert.ToString(row.Cells["CorreoP"].Value));
                     agregarbd.Parameters.AddWithValue("@Direccion", Convert.ToString(row.Cells["DireccionP"].Value));
 
@@ -124,8 +133,7 @@ namespace Construcciones_JAQ
             finally
             {
                 cn.Close();
-            }
-            
+            }           
 
 
         }

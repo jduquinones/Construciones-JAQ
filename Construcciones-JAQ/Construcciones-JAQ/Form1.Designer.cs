@@ -56,6 +56,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.labelBuscar = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             // 
             // btnAgregarP
             // 
-            this.btnAgregarP.Location = new System.Drawing.Point(695, 31);
+            this.btnAgregarP.Location = new System.Drawing.Point(664, 28);
             this.btnAgregarP.Name = "btnAgregarP";
             this.btnAgregarP.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarP.TabIndex = 17;
@@ -246,7 +247,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(695, 78);
+            this.btnEliminar.Location = new System.Drawing.Point(664, 75);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 34;
@@ -256,7 +257,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(695, 134);
+            this.btnActualizar.Location = new System.Drawing.Point(664, 131);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 35;
@@ -279,11 +280,23 @@
             this.txtBuscar.Size = new System.Drawing.Size(459, 20);
             this.txtBuscar.TabIndex = 37;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.button1.Location = new System.Drawing.Point(796, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 23);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FormRegistroPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 498);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.btnActualizar);
@@ -343,6 +356,7 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label labelBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -45,6 +45,11 @@
             this.labelTelefono = new System.Windows.Forms.Label();
             this.labelApellidos = new System.Windows.Forms.Label();
             this.dtgvPersonal = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.CedulaP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +57,6 @@
             this.SalarioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CorreoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DireccionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,41 +210,6 @@
             this.dtgvPersonal.Size = new System.Drawing.Size(743, 213);
             this.dtgvPersonal.TabIndex = 33;
             // 
-            // CedulaP
-            // 
-            this.CedulaP.HeaderText = "Cedula";
-            this.CedulaP.Name = "CedulaP";
-            // 
-            // NombreP
-            // 
-            this.NombreP.HeaderText = "Nombre";
-            this.NombreP.Name = "NombreP";
-            // 
-            // ApellidoP
-            // 
-            this.ApellidoP.HeaderText = "Apellido";
-            this.ApellidoP.Name = "ApellidoP";
-            // 
-            // TelefonoP
-            // 
-            this.TelefonoP.HeaderText = "Telefono";
-            this.TelefonoP.Name = "TelefonoP";
-            // 
-            // SalarioP
-            // 
-            this.SalarioP.HeaderText = "Salario";
-            this.SalarioP.Name = "SalarioP";
-            // 
-            // CorreoP
-            // 
-            this.CorreoP.HeaderText = "Correo";
-            this.CorreoP.Name = "CorreoP";
-            // 
-            // DireccionP
-            // 
-            this.DireccionP.HeaderText = "Direccion";
-            this.DireccionP.Name = "DireccionP";
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(664, 75);
@@ -263,6 +228,7 @@
             this.btnActualizar.TabIndex = 35;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // labelBuscar
             // 
@@ -290,6 +256,48 @@
             this.button1.TabIndex = 38;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // CedulaP
+            // 
+            this.CedulaP.HeaderText = "Cedula";
+            this.CedulaP.Name = "CedulaP";
+            this.CedulaP.ReadOnly = true;
+            // 
+            // NombreP
+            // 
+            this.NombreP.HeaderText = "Nombre";
+            this.NombreP.Name = "NombreP";
+            this.NombreP.ReadOnly = true;
+            // 
+            // ApellidoP
+            // 
+            this.ApellidoP.HeaderText = "Apellido";
+            this.ApellidoP.Name = "ApellidoP";
+            this.ApellidoP.ReadOnly = true;
+            // 
+            // TelefonoP
+            // 
+            this.TelefonoP.HeaderText = "Telefono";
+            this.TelefonoP.Name = "TelefonoP";
+            this.TelefonoP.ReadOnly = true;
+            // 
+            // SalarioP
+            // 
+            this.SalarioP.HeaderText = "Salario";
+            this.SalarioP.Name = "SalarioP";
+            this.SalarioP.ReadOnly = true;
+            // 
+            // CorreoP
+            // 
+            this.CorreoP.HeaderText = "Correo";
+            this.CorreoP.Name = "CorreoP";
+            this.CorreoP.ReadOnly = true;
+            // 
+            // DireccionP
+            // 
+            this.DireccionP.HeaderText = "Direccion";
+            this.DireccionP.Name = "DireccionP";
+            this.DireccionP.ReadOnly = true;
             // 
             // FormRegistroPersonal
             // 
@@ -320,7 +328,6 @@
             this.Controls.Add(this.btnGuardarPersonal);
             this.Name = "FormRegistroPersonal";
             this.Text = "Registro Personal";
-            this.Load += new System.EventHandler(this.FormRegistroPersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -345,6 +352,11 @@
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Label labelApellidos;
         private System.Windows.Forms.DataGridView dtgvPersonal;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Label labelBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CedulaP;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreP;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoP;
@@ -352,11 +364,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SalarioP;
         private System.Windows.Forms.DataGridViewTextBoxColumn CorreoP;
         private System.Windows.Forms.DataGridViewTextBoxColumn DireccionP;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Label labelBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button button1;
     }
 }
 

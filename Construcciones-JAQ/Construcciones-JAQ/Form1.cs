@@ -17,36 +17,24 @@ using System.Data.Sql;
 
 namespace Construcciones_JAQ
 {
-    public partial class FormRegistroPersonal : Form
+    public partial class FormRegistroPersonal : Form 
     {
         SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
 
         public FormRegistroPersonal()
         {
             InitializeComponent();
-        }        
-
-
-        private void FormRegistroPersonal_Load(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    cn.Open();
-            //    MessageBox.Show("La conexion se realizo con exito.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("No se conecto con la base de dato" + ex.ToString());
-            //}
         }
+       
 
-
-
+        // agrga datos al datagridviw
         private void btnAgregarP_Click(object sender, EventArgs e)
         {
             //Adicionar Nuevo Renglon
-
             int n = dtgvPersonal.Rows.Add();
+
+            //Limpia el datagridviw 
+            dtgvPersonal.Rows.Clear();
 
             //ingresar informacion
             dtgvPersonal.Rows[n].Cells[0].Value = txtCedulaP.Text;
@@ -67,54 +55,39 @@ namespace Construcciones_JAQ
             txtDireccionP.Text = "";
         }
        
-
-        //private void txtBuscar_TextChanged(object sender, EventArgs e)
-        //{
-        //    if(txtBuscar.Text == "")
-        //    {
-        //        dtgvPersonal.CurrentCell = null;
-
-        //        foreach (DataGridViewRow r in dtgvPersonal.Rows)
-        //        {
-        //            r.Visible = false;
-
-        //        }
-        //        foreach (DataGridViewRow r in dtgvPersonal.Rows)
-        //        {
-        //            foreach (DataGridViewCell c in r.Cells)
-        //            {
-        //                if ((c.Value.ToString().ToUpper()).IndexOf(txtBuscar.Text.ToUpper())== 0)
-        //                {
-        //                    r.Visible = true;
-        //                    break;
-        //                }
-
-        //            }
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //    }
-        //}
-
+        // elimina una fila en datagridviw
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             dtgvPersonal.Rows.Remove(dtgvPersonal.CurrentRow);
         }
 
-        private void btnGuardarPersonal_Click(object sender, EventArgs e)
+      
+        // extrae los datos del sql
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd = new SqlCommand("select * from Personal", cn);
+            SqlDataAdapter ad = new SqlDataAdapter();
+            ad.SelectCommand = cmd;
+            DataTable tabla = new DataTable();
+            ad.Fill(tabla);
+            dtgvPersonal.DataSource = tabla;
+
+        }
+
+        //los datos del datagridviw los envia al sql
+        private void btnGuardarPersonal_Click(object sender, EventArgs e)
+        {            
             SqlCommand agregarbd = new SqlCommand("INSERT INTO Personal (Id_personal, Nombre, Apellido," +
                 "Telefono, Salario, Correo, Direccion) VALUES (@CedulaP, @Nombre, @Apellido, " +
-                "@Telefono, @Salario, @Correo, @Direccion)",cn);
-            cn.Open();      
+            "@Telefono, @Salario, @Correo, @Direccion)", cn);
+            cn.Open();
+
             try
-            {                
-                foreach(DataGridViewRow row in dtgvPersonal.Rows)
-                {
+            {
+                foreach (DataGridViewRow row in dtgvPersonal.Rows)
+                {                    
                     agregarbd.Parameters.Clear();
-                    agregarbd.Parameters.AddWithValue("@CedulaP", Convert.ToInt32( row.Cells["CedulaP"].Value));
+                    agregarbd.Parameters.AddWithValue("@CedulaP", Convert.ToInt32(row.Cells["CedulaP"].Value));
                     agregarbd.Parameters.AddWithValue("@Nombre", Convert.ToString(row.Cells["NombreP"].Value));
                     agregarbd.Parameters.AddWithValue("@Apellido", Convert.ToString(row.Cells["ApellidoP"].Value));
                     agregarbd.Parameters.AddWithValue("@Telefono", Convert.ToInt64(row.Cells["TelefonoP"].Value));
@@ -125,6 +98,8 @@ namespace Construcciones_JAQ
                     agregarbd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Datos agregados");
+                //limpia las filas del datagridviw
+                dtgvPersonal.Rows.Clear();
             }
             catch (Exception ex)
             {
@@ -133,11 +108,8 @@ namespace Construcciones_JAQ
             finally
             {
                 cn.Close();
-            }           
-
-
+            }
         }
 
-       
     }
 }

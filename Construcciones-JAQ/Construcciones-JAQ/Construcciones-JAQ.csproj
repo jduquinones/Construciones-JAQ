@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsPersonalDAL.cs" />
-    <Compile Include="ClsSql.cs" />
+    <Compile Include="Cls_Consulta_sql.cs" />
     <Compile Include="ConstruccionesJAQDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

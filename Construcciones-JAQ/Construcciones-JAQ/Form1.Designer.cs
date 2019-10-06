@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGuardarPersonal = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCedulaP = new System.Windows.Forms.TextBox();
             this.txtTelefonoP = new System.Windows.Forms.TextBox();
             this.txtSalarioP = new System.Windows.Forms.TextBox();
@@ -45,88 +46,68 @@
             this.labelTelefono = new System.Windows.Forms.Label();
             this.labelApellidos = new System.Windows.Forms.Label();
             this.dtgvPersonal = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CedulaP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorreoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DireccionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Buscar = new System.Windows.Forms.Label();
+            this.txt_Buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnGuardarPersonal
-            // 
-            this.btnGuardarPersonal.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnGuardarPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPersonal.Location = new System.Drawing.Point(627, 182);
-            this.btnGuardarPersonal.Name = "btnGuardarPersonal";
-            this.btnGuardarPersonal.Size = new System.Drawing.Size(201, 63);
-            this.btnGuardarPersonal.TabIndex = 4;
-            this.btnGuardarPersonal.Text = "Guardar Registro";
-            this.btnGuardarPersonal.UseVisualStyleBackColor = false;
-            this.btnGuardarPersonal.Click += new System.EventHandler(this.btnGuardarPersonal_Click);
             // 
             // txtCedulaP
             // 
-            this.txtCedulaP.Location = new System.Drawing.Point(126, 38);
+            this.txtCedulaP.Location = new System.Drawing.Point(79, 29);
             this.txtCedulaP.Name = "txtCedulaP";
-            this.txtCedulaP.Size = new System.Drawing.Size(152, 20);
+            this.txtCedulaP.Size = new System.Drawing.Size(135, 20);
             this.txtCedulaP.TabIndex = 11;
             // 
             // txtTelefonoP
             // 
-            this.txtTelefonoP.Location = new System.Drawing.Point(433, 38);
+            this.txtTelefonoP.Location = new System.Drawing.Point(79, 76);
             this.txtTelefonoP.Name = "txtTelefonoP";
             this.txtTelefonoP.Size = new System.Drawing.Size(152, 20);
             this.txtTelefonoP.TabIndex = 13;
             // 
             // txtSalarioP
             // 
-            this.txtSalarioP.Location = new System.Drawing.Point(433, 85);
+            this.txtSalarioP.Location = new System.Drawing.Point(317, 76);
             this.txtSalarioP.Name = "txtSalarioP";
             this.txtSalarioP.Size = new System.Drawing.Size(152, 20);
             this.txtSalarioP.TabIndex = 14;
             // 
             // txtApellidoP
             // 
-            this.txtApellidoP.Location = new System.Drawing.Point(126, 127);
+            this.txtApellidoP.Location = new System.Drawing.Point(562, 25);
             this.txtApellidoP.Name = "txtApellidoP";
             this.txtApellidoP.Size = new System.Drawing.Size(152, 20);
             this.txtApellidoP.TabIndex = 15;
             // 
             // txtNombreP
             // 
-            this.txtNombreP.Location = new System.Drawing.Point(126, 85);
+            this.txtNombreP.Location = new System.Drawing.Point(317, 29);
             this.txtNombreP.Name = "txtNombreP";
-            this.txtNombreP.Size = new System.Drawing.Size(152, 20);
+            this.txtNombreP.Size = new System.Drawing.Size(140, 20);
             this.txtNombreP.TabIndex = 16;
             // 
             // btnAgregarP
             // 
-            this.btnAgregarP.Location = new System.Drawing.Point(664, 28);
+            this.btnAgregarP.Location = new System.Drawing.Point(576, 184);
             this.btnAgregarP.Name = "btnAgregarP";
             this.btnAgregarP.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarP.TabIndex = 17;
             this.btnAgregarP.Text = "Agregar";
             this.btnAgregarP.UseVisualStyleBackColor = true;
-            this.btnAgregarP.Click += new System.EventHandler(this.btnAgregarP_Click);
+            this.btnAgregarP.Click += new System.EventHandler(this.BtnAgregarP_Click);
             // 
             // txtCorreoP
             // 
-            this.txtCorreoP.Location = new System.Drawing.Point(433, 127);
+            this.txtCorreoP.Location = new System.Drawing.Point(562, 76);
             this.txtCorreoP.Name = "txtCorreoP";
             this.txtCorreoP.Size = new System.Drawing.Size(152, 20);
             this.txtCorreoP.TabIndex = 19;
             // 
             // txtDireccionP
             // 
-            this.txtDireccionP.Location = new System.Drawing.Point(126, 175);
+            this.txtDireccionP.Location = new System.Drawing.Point(79, 121);
             this.txtDireccionP.Name = "txtDireccionP";
             this.txtDireccionP.Size = new System.Drawing.Size(152, 20);
             this.txtDireccionP.TabIndex = 21;
@@ -134,7 +115,7 @@
             // labelNombres
             // 
             this.labelNombres.AutoSize = true;
-            this.labelNombres.Location = new System.Drawing.Point(51, 88);
+            this.labelNombres.Location = new System.Drawing.Point(254, 32);
             this.labelNombres.Name = "labelNombres";
             this.labelNombres.Size = new System.Drawing.Size(49, 13);
             this.labelNombres.TabIndex = 22;
@@ -143,7 +124,7 @@
             // labelCedula
             // 
             this.labelCedula.AutoSize = true;
-            this.labelCedula.Location = new System.Drawing.Point(51, 41);
+            this.labelCedula.Location = new System.Drawing.Point(16, 32);
             this.labelCedula.Name = "labelCedula";
             this.labelCedula.Size = new System.Drawing.Size(40, 13);
             this.labelCedula.TabIndex = 23;
@@ -152,7 +133,7 @@
             // labelDirrecion
             // 
             this.labelDirrecion.AutoSize = true;
-            this.labelDirrecion.Location = new System.Drawing.Point(51, 182);
+            this.labelDirrecion.Location = new System.Drawing.Point(16, 128);
             this.labelDirrecion.Name = "labelDirrecion";
             this.labelDirrecion.Size = new System.Drawing.Size(49, 13);
             this.labelDirrecion.TabIndex = 27;
@@ -161,7 +142,7 @@
             // labelCorreo
             // 
             this.labelCorreo.AutoSize = true;
-            this.labelCorreo.Location = new System.Drawing.Point(354, 135);
+            this.labelCorreo.Location = new System.Drawing.Point(502, 83);
             this.labelCorreo.Name = "labelCorreo";
             this.labelCorreo.Size = new System.Drawing.Size(38, 13);
             this.labelCorreo.TabIndex = 28;
@@ -170,7 +151,7 @@
             // labelSalario
             // 
             this.labelSalario.AutoSize = true;
-            this.labelSalario.Location = new System.Drawing.Point(354, 89);
+            this.labelSalario.Location = new System.Drawing.Point(254, 79);
             this.labelSalario.Name = "labelSalario";
             this.labelSalario.Size = new System.Drawing.Size(39, 13);
             this.labelSalario.TabIndex = 29;
@@ -179,7 +160,7 @@
             // labelTelefono
             // 
             this.labelTelefono.AutoSize = true;
-            this.labelTelefono.Location = new System.Drawing.Point(354, 38);
+            this.labelTelefono.Location = new System.Drawing.Point(16, 79);
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(49, 13);
             this.labelTelefono.TabIndex = 30;
@@ -188,7 +169,7 @@
             // labelApellidos
             // 
             this.labelApellidos.AutoSize = true;
-            this.labelApellidos.Location = new System.Drawing.Point(51, 134);
+            this.labelApellidos.Location = new System.Drawing.Point(502, 32);
             this.labelApellidos.Name = "labelApellidos";
             this.labelApellidos.Size = new System.Drawing.Size(49, 13);
             this.labelApellidos.TabIndex = 31;
@@ -196,147 +177,89 @@
             // 
             // dtgvPersonal
             // 
+            this.dtgvPersonal.AllowUserToAddRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvPersonal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CedulaP,
-            this.NombreP,
-            this.ApellidoP,
-            this.TelefonoP,
-            this.SalarioP,
-            this.CorreoP,
-            this.DireccionP});
-            this.dtgvPersonal.Location = new System.Drawing.Point(54, 273);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvPersonal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgvPersonal.Location = new System.Drawing.Point(47, 306);
             this.dtgvPersonal.Name = "dtgvPersonal";
-            this.dtgvPersonal.Size = new System.Drawing.Size(743, 213);
+            this.dtgvPersonal.ReadOnly = true;
+            this.dtgvPersonal.Size = new System.Drawing.Size(743, 217);
             this.dtgvPersonal.TabIndex = 33;
             // 
-            // btnEliminar
+            // panel1
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(664, 75);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 34;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.panel1.Controls.Add(this.lbl_Buscar);
+            this.panel1.Controls.Add(this.txt_Buscar);
+            this.panel1.Controls.Add(this.labelCedula);
+            this.panel1.Controls.Add(this.txtCedulaP);
+            this.panel1.Controls.Add(this.btnAgregarP);
+            this.panel1.Controls.Add(this.labelTelefono);
+            this.panel1.Controls.Add(this.labelSalario);
+            this.panel1.Controls.Add(this.labelApellidos);
+            this.panel1.Controls.Add(this.labelCorreo);
+            this.panel1.Controls.Add(this.txtApellidoP);
+            this.panel1.Controls.Add(this.txtCorreoP);
+            this.panel1.Controls.Add(this.txtNombreP);
+            this.panel1.Controls.Add(this.txtDireccionP);
+            this.panel1.Controls.Add(this.txtSalarioP);
+            this.panel1.Controls.Add(this.labelNombres);
+            this.panel1.Controls.Add(this.txtTelefonoP);
+            this.panel1.Controls.Add(this.labelDirrecion);
+            this.panel1.Location = new System.Drawing.Point(47, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(743, 229);
+            this.panel1.TabIndex = 34;
             // 
-            // btnActualizar
+            // lbl_Buscar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(664, 131);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 35;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.lbl_Buscar.AutoSize = true;
+            this.lbl_Buscar.Location = new System.Drawing.Point(37, 175);
+            this.lbl_Buscar.Name = "lbl_Buscar";
+            this.lbl_Buscar.Size = new System.Drawing.Size(40, 13);
+            this.lbl_Buscar.TabIndex = 33;
+            this.lbl_Buscar.Text = "Buscar";
             // 
-            // labelBuscar
+            // txt_Buscar
             // 
-            this.labelBuscar.AutoSize = true;
-            this.labelBuscar.Location = new System.Drawing.Point(60, 228);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(40, 13);
-            this.labelBuscar.TabIndex = 36;
-            this.labelBuscar.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(126, 225);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(459, 20);
-            this.txtBuscar.TabIndex = 37;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(796, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // CedulaP
-            // 
-            this.CedulaP.HeaderText = "Cedula";
-            this.CedulaP.Name = "CedulaP";
-            this.CedulaP.ReadOnly = true;
-            // 
-            // NombreP
-            // 
-            this.NombreP.HeaderText = "Nombre";
-            this.NombreP.Name = "NombreP";
-            this.NombreP.ReadOnly = true;
-            // 
-            // ApellidoP
-            // 
-            this.ApellidoP.HeaderText = "Apellido";
-            this.ApellidoP.Name = "ApellidoP";
-            this.ApellidoP.ReadOnly = true;
-            // 
-            // TelefonoP
-            // 
-            this.TelefonoP.HeaderText = "Telefono";
-            this.TelefonoP.Name = "TelefonoP";
-            this.TelefonoP.ReadOnly = true;
-            // 
-            // SalarioP
-            // 
-            this.SalarioP.HeaderText = "Salario";
-            this.SalarioP.Name = "SalarioP";
-            this.SalarioP.ReadOnly = true;
-            // 
-            // CorreoP
-            // 
-            this.CorreoP.HeaderText = "Correo";
-            this.CorreoP.Name = "CorreoP";
-            this.CorreoP.ReadOnly = true;
-            // 
-            // DireccionP
-            // 
-            this.DireccionP.HeaderText = "Direccion";
-            this.DireccionP.Name = "DireccionP";
-            this.DireccionP.ReadOnly = true;
+            this.txt_Buscar.Location = new System.Drawing.Point(119, 172);
+            this.txt_Buscar.Name = "txt_Buscar";
+            this.txt_Buscar.Size = new System.Drawing.Size(350, 20);
+            this.txt_Buscar.TabIndex = 32;
+            this.txt_Buscar.TextChanged += new System.EventHandler(this.Txt_Buscar_TextChanged);
             // 
             // FormRegistroPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 498);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.labelBuscar);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnEliminar);
+            this.ClientSize = new System.Drawing.Size(852, 549);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvPersonal);
-            this.Controls.Add(this.labelApellidos);
-            this.Controls.Add(this.labelTelefono);
-            this.Controls.Add(this.labelSalario);
-            this.Controls.Add(this.labelCorreo);
-            this.Controls.Add(this.labelDirrecion);
-            this.Controls.Add(this.labelCedula);
-            this.Controls.Add(this.labelNombres);
-            this.Controls.Add(this.txtDireccionP);
-            this.Controls.Add(this.txtCorreoP);
-            this.Controls.Add(this.btnAgregarP);
-            this.Controls.Add(this.txtNombreP);
-            this.Controls.Add(this.txtApellidoP);
-            this.Controls.Add(this.txtSalarioP);
-            this.Controls.Add(this.txtTelefonoP);
-            this.Controls.Add(this.txtCedulaP);
-            this.Controls.Add(this.btnGuardarPersonal);
             this.Name = "FormRegistroPersonal";
-            this.Text = "Registro Personal";
+            this.Text = "bgv";
+            this.Load += new System.EventHandler(this.FormRegistroPersonal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnGuardarPersonal;
-        private System.Windows.Forms.TextBox txtCedulaP;
         private System.Windows.Forms.TextBox txtTelefonoP;
         private System.Windows.Forms.TextBox txtSalarioP;
         private System.Windows.Forms.TextBox txtApellidoP;
@@ -351,19 +274,11 @@
         private System.Windows.Forms.Label labelSalario;
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Label labelApellidos;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_Buscar;
+        public System.Windows.Forms.TextBox txtCedulaP;
+        public System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.DataGridView dtgvPersonal;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Label labelBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CedulaP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalarioP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DireccionP;
     }
 }
 

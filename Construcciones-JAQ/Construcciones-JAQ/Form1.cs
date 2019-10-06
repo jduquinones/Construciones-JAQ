@@ -11,105 +11,59 @@ using System.Data.SqlClient;
 using System.Data.Sql;
  
 
-
-
-
-
 namespace Construcciones_JAQ
 {
     public partial class FormRegistroPersonal : Form 
     {
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
+         Cls_Consulta_sql consulta;
 
         public FormRegistroPersonal()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
-       
 
-        // agrga datos al datagridviw
-        private void btnAgregarP_Click(object sender, EventArgs e)
+        private void BtnAgregarP_Click(object sender, EventArgs e)
         {
-            //Adicionar Nuevo Renglon
-            int n = dtgvPersonal.Rows.Add();
+            consulta = new Cls_Consulta_sql();
 
-            //Limpia el datagridviw 
-            dtgvPersonal.Rows.Clear();
-
-            //ingresar informacion
-            dtgvPersonal.Rows[n].Cells[0].Value = txtCedulaP.Text;
-            dtgvPersonal.Rows[n].Cells[1].Value = txtNombreP.Text;
-            dtgvPersonal.Rows[n].Cells[2].Value = txtApellidoP.Text;
-            dtgvPersonal.Rows[n].Cells[3].Value = txtTelefonoP.Text;
-            dtgvPersonal.Rows[n].Cells[4].Value = txtSalarioP.Text;
-            dtgvPersonal.Rows[n].Cells[5].Value = txtCorreoP.Text;
-            dtgvPersonal.Rows[n].Cells[6].Value = txtDireccionP.Text;
-
-            //limpiar los textbox
-            txtCedulaP.Text = "";
-            txtNombreP.Text = "";
-            txtApellidoP.Text = "";
-            txtTelefonoP.Text = "";
-            txtSalarioP.Text = "";
-            txtCorreoP.Text = "";
-            txtDireccionP.Text = "";
-        }
-       
-        // elimina una fila en datagridviw
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            dtgvPersonal.Rows.Remove(dtgvPersonal.CurrentRow);
-        }
-
-      
-        // extrae los datos del sql
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            SqlCommand cmd = new SqlCommand("select * from Personal", cn);
-            SqlDataAdapter ad = new SqlDataAdapter();
-            ad.SelectCommand = cmd;
-            DataTable tabla = new DataTable();
-            ad.Fill(tabla);
-            dtgvPersonal.DataSource = tabla;
-
-        }
-
-        //los datos del datagridviw los envia al sql
-        private void btnGuardarPersonal_Click(object sender, EventArgs e)
-        {            
-            SqlCommand agregarbd = new SqlCommand("INSERT INTO Personal (Id_personal, Nombre, Apellido," +
-                "Telefono, Salario, Correo, Direccion) VALUES (@CedulaP, @Nombre, @Apellido, " +
-            "@Telefono, @Salario, @Correo, @Direccion)", cn);
-            cn.Open();
-
-            try
+            if (consulta.validaregistro(int.Parse(txtCedulaP.Text))==0)
             {
-                foreach (DataGridViewRow row in dtgvPersonal.Rows)
-                {                    
-                    agregarbd.Parameters.Clear();
-                    agregarbd.Parameters.AddWithValue("@CedulaP", Convert.ToInt32(row.Cells["CedulaP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Nombre", Convert.ToString(row.Cells["NombreP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Apellido", Convert.ToString(row.Cells["ApellidoP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Telefono", Convert.ToInt64(row.Cells["TelefonoP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Salario", Convert.ToInt64(row.Cells["SalarioP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Correo", Convert.ToString(row.Cells["CorreoP"].Value));
-                    agregarbd.Parameters.AddWithValue("@Direccion", Convert.ToString(row.Cells["DireccionP"].Value));
+                MessageBox.Show(consulta.agregar(Convert.ToInt64(txtCedulaP.Text), txtNombreP.Text, txtApellidoP.Text, Convert.ToInt64(txtTelefonoP.Text), Convert.ToDecimal(txtSalarioP.Text), txtCorreoP.Text, txtDireccionP.Text));
+                consulta.ver(dtgvPersonal);
 
-                    agregarbd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Datos agregados");
-                //limpia las filas del datagridviw
-                dtgvPersonal.Rows.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al agregar" + ex.ToString());
-            }
-            finally
-            {
-                cn.Close();
+                txtCedulaP.Text = "";
+                txtNombreP.Text = "";
+                txtApellidoP.Text = "";
+                txtTelefonoP.Text = "";
+                txtSalarioP.Text = "";
+                txtDireccionP.Text = "";
+                txtCorreoP.Text = "";
             }
         }
 
+
+        private void Txt_Buscar_MouseUp(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void FormRegistroPersonal_Load_1(object sender, EventArgs e)
+        {
+            consulta = new Cls_Consulta_sql();
+            consulta.ver(dtgvPersonal);
+        }
+
+        private void Txt_Buscar_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Buscar.Text == "")
+            {
+                consulta.ver(dtgvPersonal);
+            }
+            else
+            {
+                consulta.buscarporid(dtgvPersonal, txt_Buscar.Text);
+            }
+        }
     }
 }

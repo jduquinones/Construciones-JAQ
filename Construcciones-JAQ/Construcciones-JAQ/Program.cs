@@ -16,7 +16,9 @@ namespace Construcciones_JAQ
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormRegistroPersonal());            
+            //Application.Run(new FormRegistroPersonal());
+            Application.Run(new Frmdatospersonal());
+
         }
     }
 }

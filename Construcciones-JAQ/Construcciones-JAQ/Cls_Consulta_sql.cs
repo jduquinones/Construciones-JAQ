@@ -17,6 +17,7 @@ namespace Construcciones_JAQ
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;
+        DataSet ds;
   
         //ver registros
         public void ver(DataGridView dgv)
@@ -39,7 +40,7 @@ namespace Construcciones_JAQ
         }
 
         //buscar por cedula
-        public void buscarporid(DataGridView dgv, string buscar)
+        public void filtrar(DataGridView dgv, string buscar)
         {
             cn.Open();
             string info = "INFO";
@@ -48,19 +49,18 @@ namespace Construcciones_JAQ
                 cm = new SqlCommand();
                 cm = cn.CreateCommand();
                 cm.CommandType = CommandType.Text;
-                cm.CommandText = "select * from Personal where Nombre like ('" + buscar + "%')";
+                cm.CommandText = "select * from Personal where Id_Personal like ('" + buscar + "%') OR Nombre like ('" + buscar + "%') OR Apellido like ('" + buscar + "%')";
                 cm.ExecuteNonQuery();
                 dt = new DataTable();
                 da = new SqlDataAdapter(cm);
                 da.Fill(dt);
                 dgv.DataSource = dt;
-            }            
+            }
             catch (Exception ex)
             {
                 info = ("No se pudo llamar al datagridviw" + ex.ToString());
             }
             cn.Close();
-
         }
 
         //agregar personal
@@ -104,5 +104,60 @@ namespace Construcciones_JAQ
             return contador;
 
         }
+
+        public void eliminar(DataGridView dgv, string buscar)
+        {
+            string seleccionar = "Se actualizo";
+            cn.Open();
+            try
+            {
+                dgv.Columns.Clear();
+                DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
+                check.HeaderText = "Seleccionar";
+                check.Name = "dgv_Seleccionar";
+                check.Width = 60;
+                dgv.Columns.Add(check);
+                dgv.Columns[dgv.Columns.Count - 1].DisplayIndex = 0;
+                da.Fill(dt);
+                dgv.DataSource = dt;
+                dgv.Refresh();
+
+                ver(dgv);
+                filtrar(dgv, buscar);
+
+            }
+            catch (Exception ex)
+            {
+                seleccionar = "No se pudo actualizar"+ ex.ToString();
+            }
+            cn.Close();
+        }
+
+        public void modificar(Int32 cedula, string nombre, string apellido, Int64 telefono, Int64 salario, string correo, string direccion)
+        {
+            string fallido="Fallo al cargar el dgv";
+            try
+            {
+                string query = "update Personal set Nombre = @nombre, Apellido = @apellido, Telefono = @telefono, Salario = @salario, Correo = @correo, Direccion = @direccion, where Id_Personal = @cedula";
+                cn.Open();
+                cm = new SqlCommand(query,cn);
+                cm.Parameters.AddWithValue("@nombre", nombre);
+                cm.Parameters.AddWithValue("@apellido", apellido);
+                cm.Parameters.AddWithValue("@telefono", telefono);
+                cm.Parameters.AddWithValue("@salario", salario);
+                cm.Parameters.AddWithValue("@correo", correo);
+                cm.Parameters.AddWithValue("@direccion", direccion);
+                cm.Parameters.AddWithValue("@cedula", cedula);
+
+                cm.ExecuteNonQuery();
+                MessageBox.Show("Datos actualizados con exito");
+            }
+            catch (Exception ex)
+            {
+                fallido = "No se pudo cargar los datos" + ex.ToString();
+            }
+            cn.Close();            
+        }
+
     }
 }

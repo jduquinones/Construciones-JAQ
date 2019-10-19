@@ -48,7 +48,7 @@ namespace Construcciones_JAQ
                 cm = new SqlCommand();
                 cm = cn.CreateCommand();
                 cm.CommandType = CommandType.Text;
-                cm.CommandText = "select * from Personal where Nombre like ('" + buscar + "%')";
+                cm.CommandText = "select * from Personal where Id_Personal like ('" + buscar + "%') or Nombre like ('" + buscar + "%') or Apellido like ('" + buscar + "%')";
                 cm.ExecuteNonQuery();
                 dt = new DataTable();
                 da = new SqlDataAdapter(cm);
@@ -64,45 +64,46 @@ namespace Construcciones_JAQ
         }
 
         //agregar personal
-        public string agregar(Int64 cedula, string nombre, string apellido, Int64 telefono, decimal salario, string correo, string direccion)
+        public void agregar(Int32 cedula, string nombre, string apellido, Int64 telefono, decimal salario, string correo, string direccion)
         {
             cn.Open();
             string agregado = "Datos agregados correctamente";            
             try
             {                
-                cm = new SqlCommand("insert into Personal(Id_Personal, Nombre, Apellido, Telefono, Salario, Correo, Direccion) values (" + cedula + ",'"+ nombre + "','"+ apellido + "',"+ telefono + ","+salario+",'"+ correo + "','"+ direccion + "')", cn);
+                cm = new SqlCommand("insert into Personal(Id_Personal, Nombre, Apellido, Telefono, Salario, Correo, Direccion) values (@Id_Personal, @Nombre, @Apellido, @Telefono, @Salario, @Correo, @Direccion)", cn); 
+                cm.Parameters.AddWithValue("@Id_Personal", Convert.ToInt32(cedula));
+                cm.Parameters.AddWithValue("@Nombre", nombre);
+                cm.Parameters.AddWithValue("@Apellido", apellido);
+                cm.Parameters.AddWithValue("@Telefono", Convert.ToInt64(telefono));
+                cm.Parameters.AddWithValue("@Salario", Convert.ToDecimal(salario));
+                cm.Parameters.AddWithValue("@Correo", correo);
+                cm.Parameters.AddWithValue("@Direccion", direccion);
                 cm.ExecuteNonQuery();                
             }
             catch (Exception ex)
             {
                 agregado = "no se agrego: " + ex.ToString();
             }
-            cn.Close();
-            return agregado;
+            cn.Close();            
         }
 
-        //valida que los datos no se rrepitan
-        public int validaregistro(int cedula)
-        {
+        public void eliminar(Int32 cedula)
+        {           
             cn.Open();
-            int contador = 0;
+            string agregado = "Datos agregados correctamente";
             try
-            {                
-                cm = new SqlCommand("select * from Personal where Id_personal="+cedula+"", cn);
-                dr=cm.ExecuteReader();
-                while (dr.Read())
-                {
-                    contador++;
-                }
-                dr.Close();
+            {
+                cm = new SqlCommand("delete from  Personal where  Id_Personal = @Id_Personal", cn);                
+                cm.Parameters.AddWithValue("@Id_Personal", Convert.ToInt32(cedula));                
+                cm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se realizo la consulta", ex.ToString());
+                agregado = "no se agrego: " + ex.ToString();
             }
-            cn.Close();
-            return contador;
-
+            cn.Close();            
         }
+
+
     }
 }

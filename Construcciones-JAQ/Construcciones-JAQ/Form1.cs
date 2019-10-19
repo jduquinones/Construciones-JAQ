@@ -22,32 +22,6 @@ namespace Construcciones_JAQ
             InitializeComponent();            
         }
 
-        private void BtnAgregarP_Click(object sender, EventArgs e)
-        {
-            consulta = new Cls_Consulta_sql();
-
-            if (consulta.validaregistro(int.Parse(txtCedulaP.Text))==0)
-            {
-                MessageBox.Show(consulta.agregar(Convert.ToInt64(txtCedulaP.Text), txtNombreP.Text, txtApellidoP.Text, Convert.ToInt64(txtTelefonoP.Text), Convert.ToDecimal(txtSalarioP.Text), txtCorreoP.Text, txtDireccionP.Text));
-                consulta.ver(dtgvPersonal);
-
-                txtCedulaP.Text = "";
-                txtNombreP.Text = "";
-                txtApellidoP.Text = "";
-                txtTelefonoP.Text = "";
-                txtSalarioP.Text = "";
-                txtDireccionP.Text = "";
-                txtCorreoP.Text = "";
-            }
-        }
-
-
-        private void Txt_Buscar_MouseUp(object sender, EventArgs e)
-        {
-            
-
-        }
-
         private void FormRegistroPersonal_Load_1(object sender, EventArgs e)
         {
             consulta = new Cls_Consulta_sql();
@@ -64,6 +38,33 @@ namespace Construcciones_JAQ
             {
                 consulta.buscarporid(dtgvPersonal, txt_Buscar.Text);
             }
+        }
+
+        private void BtnAgregarP_Click(object sender, EventArgs e)
+        {
+            consulta = new Cls_Consulta_sql();
+            consulta.agregar(Convert.ToInt32(txtCedulaP.Text), txtNombreP.Text, txtApellidoP.Text, Convert.ToInt64(txtTelefonoP.Text), Convert.ToDecimal(txtSalarioP.Text), txtCorreoP.Text, txtDireccionP.Text);
+            consulta.ver(dtgvPersonal);
+            txtCedulaP.Text = "";
+            txtNombreP.Text = "";
+            txtApellidoP.Text = "";
+            txtTelefonoP.Text = "";
+            txtSalarioP.Text = "";
+            txtCorreoP.Text = "";
+            txtDireccionP.Text = "";
+        }
+
+        private void Btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            consulta.eliminar(Convert.ToInt32(txtCedulaP.Text));
+            consulta.ver(dtgvPersonal);
+            txtCedulaP.Text = "";
+            txtNombreP.Text = "";
+            txtApellidoP.Text = "";
+            txtTelefonoP.Text = "";
+            txtSalarioP.Text = "";
+            txtCorreoP.Text = "";
+            txtDireccionP.Text = "";
         }
     }
 }

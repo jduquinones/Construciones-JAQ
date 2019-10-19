@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCedulaP = new System.Windows.Forms.TextBox();
             this.txtTelefonoP = new System.Windows.Forms.TextBox();
             this.txtSalarioP = new System.Windows.Forms.TextBox();
@@ -49,8 +49,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_Buscar = new System.Windows.Forms.Label();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.btn_Seleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCedulaP
@@ -62,14 +67,14 @@
             // 
             // txtTelefonoP
             // 
-            this.txtTelefonoP.Location = new System.Drawing.Point(79, 76);
+            this.txtTelefonoP.Location = new System.Drawing.Point(79, 63);
             this.txtTelefonoP.Name = "txtTelefonoP";
             this.txtTelefonoP.Size = new System.Drawing.Size(152, 20);
             this.txtTelefonoP.TabIndex = 13;
             // 
             // txtSalarioP
             // 
-            this.txtSalarioP.Location = new System.Drawing.Point(317, 76);
+            this.txtSalarioP.Location = new System.Drawing.Point(317, 63);
             this.txtSalarioP.Name = "txtSalarioP";
             this.txtSalarioP.Size = new System.Drawing.Size(152, 20);
             this.txtSalarioP.TabIndex = 14;
@@ -90,7 +95,7 @@
             // 
             // btnAgregarP
             // 
-            this.btnAgregarP.Location = new System.Drawing.Point(576, 184);
+            this.btnAgregarP.Location = new System.Drawing.Point(13, 18);
             this.btnAgregarP.Name = "btnAgregarP";
             this.btnAgregarP.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarP.TabIndex = 17;
@@ -100,14 +105,14 @@
             // 
             // txtCorreoP
             // 
-            this.txtCorreoP.Location = new System.Drawing.Point(562, 76);
+            this.txtCorreoP.Location = new System.Drawing.Point(562, 63);
             this.txtCorreoP.Name = "txtCorreoP";
             this.txtCorreoP.Size = new System.Drawing.Size(152, 20);
             this.txtCorreoP.TabIndex = 19;
             // 
             // txtDireccionP
             // 
-            this.txtDireccionP.Location = new System.Drawing.Point(79, 121);
+            this.txtDireccionP.Location = new System.Drawing.Point(79, 96);
             this.txtDireccionP.Name = "txtDireccionP";
             this.txtDireccionP.Size = new System.Drawing.Size(152, 20);
             this.txtDireccionP.TabIndex = 21;
@@ -133,7 +138,7 @@
             // labelDirrecion
             // 
             this.labelDirrecion.AutoSize = true;
-            this.labelDirrecion.Location = new System.Drawing.Point(16, 128);
+            this.labelDirrecion.Location = new System.Drawing.Point(16, 103);
             this.labelDirrecion.Name = "labelDirrecion";
             this.labelDirrecion.Size = new System.Drawing.Size(49, 13);
             this.labelDirrecion.TabIndex = 27;
@@ -142,7 +147,7 @@
             // labelCorreo
             // 
             this.labelCorreo.AutoSize = true;
-            this.labelCorreo.Location = new System.Drawing.Point(502, 83);
+            this.labelCorreo.Location = new System.Drawing.Point(502, 70);
             this.labelCorreo.Name = "labelCorreo";
             this.labelCorreo.Size = new System.Drawing.Size(38, 13);
             this.labelCorreo.TabIndex = 28;
@@ -151,7 +156,7 @@
             // labelSalario
             // 
             this.labelSalario.AutoSize = true;
-            this.labelSalario.Location = new System.Drawing.Point(254, 79);
+            this.labelSalario.Location = new System.Drawing.Point(254, 66);
             this.labelSalario.Name = "labelSalario";
             this.labelSalario.Size = new System.Drawing.Size(39, 13);
             this.labelSalario.TabIndex = 29;
@@ -160,7 +165,7 @@
             // labelTelefono
             // 
             this.labelTelefono.AutoSize = true;
-            this.labelTelefono.Location = new System.Drawing.Point(16, 79);
+            this.labelTelefono.Location = new System.Drawing.Point(16, 66);
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(49, 13);
             this.labelTelefono.TabIndex = 30;
@@ -178,24 +183,24 @@
             // dtgvPersonal
             // 
             this.dtgvPersonal.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvPersonal.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgvPersonal.Location = new System.Drawing.Point(47, 306);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvPersonal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvPersonal.Location = new System.Drawing.Point(47, 367);
             this.dtgvPersonal.Name = "dtgvPersonal";
             this.dtgvPersonal.ReadOnly = true;
             this.dtgvPersonal.Size = new System.Drawing.Size(743, 217);
@@ -207,7 +212,6 @@
             this.panel1.Controls.Add(this.txt_Buscar);
             this.panel1.Controls.Add(this.labelCedula);
             this.panel1.Controls.Add(this.txtCedulaP);
-            this.panel1.Controls.Add(this.btnAgregarP);
             this.panel1.Controls.Add(this.labelTelefono);
             this.panel1.Controls.Add(this.labelSalario);
             this.panel1.Controls.Add(this.labelApellidos);
@@ -220,15 +224,15 @@
             this.panel1.Controls.Add(this.labelNombres);
             this.panel1.Controls.Add(this.txtTelefonoP);
             this.panel1.Controls.Add(this.labelDirrecion);
-            this.panel1.Location = new System.Drawing.Point(47, 35);
+            this.panel1.Location = new System.Drawing.Point(47, 148);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(743, 229);
+            this.panel1.Size = new System.Drawing.Size(743, 185);
             this.panel1.TabIndex = 34;
             // 
             // lbl_Buscar
             // 
             this.lbl_Buscar.AutoSize = true;
-            this.lbl_Buscar.Location = new System.Drawing.Point(37, 175);
+            this.lbl_Buscar.Location = new System.Drawing.Point(90, 143);
             this.lbl_Buscar.Name = "lbl_Buscar";
             this.lbl_Buscar.Size = new System.Drawing.Size(40, 13);
             this.lbl_Buscar.TabIndex = 33;
@@ -236,25 +240,66 @@
             // 
             // txt_Buscar
             // 
-            this.txt_Buscar.Location = new System.Drawing.Point(119, 172);
+            this.txt_Buscar.Location = new System.Drawing.Point(172, 140);
             this.txt_Buscar.Name = "txt_Buscar";
             this.txt_Buscar.Size = new System.Drawing.Size(350, 20);
             this.txt_Buscar.TabIndex = 32;
             this.txt_Buscar.TextChanged += new System.EventHandler(this.Txt_Buscar_TextChanged);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_Seleccionar);
+            this.panel2.Controls.Add(this.btn_Modificar);
+            this.panel2.Controls.Add(this.btn_Eliminar);
+            this.panel2.Controls.Add(this.btnAgregarP);
+            this.panel2.Location = new System.Drawing.Point(47, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 102);
+            this.panel2.TabIndex = 35;
+            // 
+            // btn_Modificar
+            // 
+            this.btn_Modificar.Location = new System.Drawing.Point(13, 62);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Modificar.TabIndex = 19;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Location = new System.Drawing.Point(110, 62);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Eliminar.TabIndex = 18;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
+            // 
+            // btn_Seleccionar
+            // 
+            this.btn_Seleccionar.Location = new System.Drawing.Point(110, 18);
+            this.btn_Seleccionar.Name = "btn_Seleccionar";
+            this.btn_Seleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Seleccionar.TabIndex = 20;
+            this.btn_Seleccionar.Text = "Seleccionar";
+            this.btn_Seleccionar.UseVisualStyleBackColor = true;
+            // 
             // FormRegistroPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 549);
+            this.ClientSize = new System.Drawing.Size(852, 606);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvPersonal);
             this.Name = "FormRegistroPersonal";
-            this.Text = "bgv";
+            this.Text = "REGISTRO PERSONAL";
             this.Load += new System.EventHandler(this.FormRegistroPersonal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -279,6 +324,10 @@
         public System.Windows.Forms.TextBox txtCedulaP;
         public System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.DataGridView dtgvPersonal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_Eliminar;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Seleccionar;
     }
 }
 

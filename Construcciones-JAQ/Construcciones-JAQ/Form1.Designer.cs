@@ -50,9 +50,11 @@
             this.lbl_Buscar = new System.Windows.Forms.Label();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Seleccionar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.btn_Seleccionar = new System.Windows.Forms.Button();
+            this.Lbl_ObraAgsinado = new System.Windows.Forms.Label();
+            this.Cmb_Contracto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,7 +114,7 @@
             // 
             // txtDireccionP
             // 
-            this.txtDireccionP.Location = new System.Drawing.Point(79, 96);
+            this.txtDireccionP.Location = new System.Drawing.Point(144, 96);
             this.txtDireccionP.Name = "txtDireccionP";
             this.txtDireccionP.Size = new System.Drawing.Size(152, 20);
             this.txtDireccionP.TabIndex = 21;
@@ -138,7 +140,7 @@
             // labelDirrecion
             // 
             this.labelDirrecion.AutoSize = true;
-            this.labelDirrecion.Location = new System.Drawing.Point(16, 103);
+            this.labelDirrecion.Location = new System.Drawing.Point(81, 103);
             this.labelDirrecion.Name = "labelDirrecion";
             this.labelDirrecion.Size = new System.Drawing.Size(49, 13);
             this.labelDirrecion.TabIndex = 27;
@@ -208,6 +210,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Cmb_Contracto);
+            this.panel1.Controls.Add(this.Lbl_ObraAgsinado);
             this.panel1.Controls.Add(this.lbl_Buscar);
             this.panel1.Controls.Add(this.txt_Buscar);
             this.panel1.Controls.Add(this.labelCedula);
@@ -257,6 +261,15 @@
             this.panel2.Size = new System.Drawing.Size(204, 102);
             this.panel2.TabIndex = 35;
             // 
+            // btn_Seleccionar
+            // 
+            this.btn_Seleccionar.Location = new System.Drawing.Point(110, 18);
+            this.btn_Seleccionar.Name = "btn_Seleccionar";
+            this.btn_Seleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Seleccionar.TabIndex = 20;
+            this.btn_Seleccionar.Text = "Seleccionar";
+            this.btn_Seleccionar.UseVisualStyleBackColor = true;
+            // 
             // btn_Modificar
             // 
             this.btn_Modificar.Location = new System.Drawing.Point(13, 62);
@@ -276,14 +289,23 @@
             this.btn_Eliminar.UseVisualStyleBackColor = true;
             this.btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
-            // btn_Seleccionar
+            // Lbl_ObraAgsinado
             // 
-            this.btn_Seleccionar.Location = new System.Drawing.Point(110, 18);
-            this.btn_Seleccionar.Name = "btn_Seleccionar";
-            this.btn_Seleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Seleccionar.TabIndex = 20;
-            this.btn_Seleccionar.Text = "Seleccionar";
-            this.btn_Seleccionar.UseVisualStyleBackColor = true;
+            this.Lbl_ObraAgsinado.AutoSize = true;
+            this.Lbl_ObraAgsinado.Location = new System.Drawing.Point(380, 103);
+            this.Lbl_ObraAgsinado.Name = "Lbl_ObraAgsinado";
+            this.Lbl_ObraAgsinado.Size = new System.Drawing.Size(77, 13);
+            this.Lbl_ObraAgsinado.TabIndex = 35;
+            this.Lbl_ObraAgsinado.Text = "Obra Agsinado";
+            this.Lbl_ObraAgsinado.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // Cmb_Contracto
+            // 
+            this.Cmb_Contracto.FormattingEnabled = true;
+            this.Cmb_Contracto.Location = new System.Drawing.Point(463, 100);
+            this.Cmb_Contracto.Name = "Cmb_Contracto";
+            this.Cmb_Contracto.Size = new System.Drawing.Size(121, 21);
+            this.Cmb_Contracto.TabIndex = 36;
             // 
             // FormRegistroPersonal
             // 
@@ -328,6 +350,8 @@
         private System.Windows.Forms.Button btn_Eliminar;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Button btn_Seleccionar;
+        private System.Windows.Forms.Label Lbl_ObraAgsinado;
+        private System.Windows.Forms.ComboBox Cmb_Contracto;
     }
 }
 

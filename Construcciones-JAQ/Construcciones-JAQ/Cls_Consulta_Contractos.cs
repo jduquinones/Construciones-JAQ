@@ -14,8 +14,7 @@ namespace Construcciones_JAQ
     class Cls_Consulta_Contractos
     {
 
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
-        SqlDataReader dr;
+        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");     
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;

@@ -119,6 +119,8 @@
             // dtgvContracto
             // 
             this.dtgvContracto.AllowUserToAddRows = false;
+            this.dtgvContracto.AllowUserToDeleteRows = false;
+            this.dtgvContracto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,10 +138,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvContracto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgvContracto.Location = new System.Drawing.Point(118, 314);
+            this.dtgvContracto.Location = new System.Drawing.Point(179, 314);
             this.dtgvContracto.Name = "dtgvContracto";
             this.dtgvContracto.ReadOnly = true;
-            this.dtgvContracto.Size = new System.Drawing.Size(865, 217);
+            this.dtgvContracto.Size = new System.Drawing.Size(665, 217);
             this.dtgvContracto.TabIndex = 37;
             // 
             // panel1
@@ -163,7 +165,7 @@
             this.panel1.Controls.Add(this.labelDirrecion);
             this.panel1.Location = new System.Drawing.Point(118, 131);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(865, 177);
+            this.panel1.Size = new System.Drawing.Size(809, 177);
             this.panel1.TabIndex = 38;
             // 
             // dtp_fecha_ini_contracto
@@ -306,6 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1049, 541);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvContracto);
@@ -313,7 +316,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Lbl_Numero_Contracto);
             this.Name = "Frm_Contractos";
-            this.Text = "Contractos";
+            this.Text = "CONTRACTOS";
             this.Load += new System.EventHandler(this.Frm_Contractos_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvContracto)).EndInit();

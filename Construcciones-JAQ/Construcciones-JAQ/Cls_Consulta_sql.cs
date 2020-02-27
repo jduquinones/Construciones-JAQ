@@ -13,7 +13,6 @@ namespace Construcciones_JAQ
     class Cls_Consulta_sql
     {
         SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
-        SqlDataReader dr;
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;

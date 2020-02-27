@@ -54,7 +54,6 @@
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(121, 20);
             this.txt_usuario.TabIndex = 2;
-            this.txt_usuario.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txt_contraseña
             // 
@@ -98,7 +97,6 @@
             this.lbl_construccionesjaq.Size = new System.Drawing.Size(136, 13);
             this.lbl_construccionesjaq.TabIndex = 7;
             this.lbl_construccionesjaq.Text = "CONSTRUCCIONES J A Q";
-            this.lbl_construccionesjaq.Click += new System.EventHandler(this.Lbl_construccionesjaq_Click);
             // 
             // btn_cancelar_login
             // 
@@ -108,9 +106,11 @@
             this.btn_cancelar_login.TabIndex = 8;
             this.btn_cancelar_login.Text = "CANCELAR";
             this.btn_cancelar_login.UseVisualStyleBackColor = true;
+            this.btn_cancelar_login.Click += new System.EventHandler(this.Btn_cancelar_login_Click);
             // 
             // Frm_Login
             // 
+            this.AcceptButton = this.btn_Apcetar_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 372);

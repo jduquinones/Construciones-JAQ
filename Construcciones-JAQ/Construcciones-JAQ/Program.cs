@@ -16,7 +16,7 @@ namespace Construcciones_JAQ
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Contractos());            
+            Application.Run(new Frm_Login());            
         }
     }
 }

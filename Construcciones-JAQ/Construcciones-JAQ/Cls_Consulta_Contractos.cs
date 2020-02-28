@@ -8,22 +8,24 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data;
 
+
 namespace Construcciones_JAQ
 {
-    class Cls_Consulta_sql
+    class Cls_Consulta_Contractos
     {
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
+
+        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");     
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;
-  
-        //ver registros
+
+        //ver Contractos
         public void ver(DataGridView dgv)
         {
             cn.Open();
             try
             {
-                da = new SqlDataAdapter("select * from Personal", cn);
+                da = new SqlDataAdapter("select * from Contracto", cn);
                 dt = new DataTable();
                 da.Fill(dt);
                 dgv.DataSource = dt;
@@ -37,7 +39,7 @@ namespace Construcciones_JAQ
 
         }
 
-        //buscar por cedula
+        //buscar por Nit
         public void buscarporid(DataGridView dgv, string buscar)
         {
             cn.Open();
@@ -47,13 +49,13 @@ namespace Construcciones_JAQ
                 cm = new SqlCommand();
                 cm = cn.CreateCommand();
                 cm.CommandType = CommandType.Text;
-                cm.CommandText = "select * from Personal where Id_Personal like ('" + buscar + "%') or Nombre like ('" + buscar + "%') or Apellido like ('" + buscar + "%')";
+                cm.CommandText = "select * from Contracto where NIt like ('" + buscar + "%') or Razon_Social like ('" + buscar + "%')";
                 cm.ExecuteNonQuery();
                 dt = new DataTable();
                 da = new SqlDataAdapter(cm);
                 da.Fill(dt);
                 dgv.DataSource = dt;
-            }            
+            }
             catch (Exception ex)
             {
                 info = ("No se pudo llamar al datagridviw" + ex.ToString());
@@ -62,47 +64,48 @@ namespace Construcciones_JAQ
 
         }
 
-        //agregar personal
-        public void agregar(Int32 cedula, string nombre, string apellido, Int64 telefono, decimal salario, string correo, string direccion)
+        //agregar Contracto
+        public void agregar(Int32 Nit, string Razon_Social, string Encargado, Int64 telefono, DateTime Fecha_Inicial, string correo, string direccion, string mano_obra)
         {
-            cn.Open();
-            string agregado = "Datos agregados correctamente";            
-            try
-            {                
-                cm = new SqlCommand("insert into Personal(Id_Personal, Nombre, Apellido, Telefono, Salario, Correo, Direccion) values (@Id_Personal, @Nombre, @Apellido, @Telefono, @Salario, @Correo, @Direccion)", cn); 
-                cm.Parameters.AddWithValue("@Id_Personal", Convert.ToInt32(cedula));
-                cm.Parameters.AddWithValue("@Nombre", nombre);
-                cm.Parameters.AddWithValue("@Apellido", apellido);
-                cm.Parameters.AddWithValue("@Telefono", Convert.ToInt64(telefono));
-                cm.Parameters.AddWithValue("@Salario", Convert.ToDecimal(salario));
-                cm.Parameters.AddWithValue("@Correo", correo);
-                cm.Parameters.AddWithValue("@Direccion", direccion);
-                cm.ExecuteNonQuery();                
-            }
-            catch (Exception ex)
-            {
-                agregado = "no se agrego: " + ex.ToString();
-            }
-            cn.Close();            
-        }
-
-        public void eliminar(Int32 cedula)
-        {           
             cn.Open();
             string agregado = "Datos agregados correctamente";
             try
             {
-                cm = new SqlCommand("delete from  Personal where  Id_Personal = @Id_Personal", cn);                
-                cm.Parameters.AddWithValue("@Id_Personal", Convert.ToInt32(cedula));                
+                cm = new SqlCommand("insert into Contracto(Nit, Razon_Social, Encargado, Telefono, Fecha_Inicial, Correo, Direccion, mano_obra) values (@Nit, @Razon_Social, @Encargado, @Telefono, @Fecha_Inicial, @Correo, @Direccion, @mano_obra)", cn);
+                cm.Parameters.AddWithValue("@Nit", Convert.ToInt32(Nit));
+                cm.Parameters.AddWithValue("@Razon_Social", Razon_Social);
+                cm.Parameters.AddWithValue("@Encargado", Encargado);
+                cm.Parameters.AddWithValue("@Telefono", Convert.ToInt64(telefono));
+                cm.Parameters.AddWithValue("@Fecha_Inicial", Convert.ToDateTime(Fecha_Inicial));
+                cm.Parameters.AddWithValue("@Correo", correo);
+                cm.Parameters.AddWithValue("@Direccion", direccion);
+                cm.Parameters.AddWithValue("@mano_obra", mano_obra);
+
                 cm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 agregado = "no se agrego: " + ex.ToString();
             }
-            cn.Close();            
+            cn.Close();
         }
 
-
+        // ELiminar Contracto
+        public void eliminar(Int32 cedula)
+        {
+            cn.Open();
+            string agregado = "Datos agregados correctamente";
+            try
+            {
+                cm = new SqlCommand("delete from  Contracto where  Nit = @Nit", cn);
+                cm.Parameters.AddWithValue("@Nit", Convert.ToInt32(cedula));
+                cm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                agregado = "no se agrego: " + ex.ToString();
+            }
+            cn.Close();
+        }
     }
 }

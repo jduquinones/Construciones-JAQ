@@ -53,24 +53,51 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsPersonalDAL.cs" />
+    <Compile Include="Cls_Consulta_Contractos.cs" />
     <Compile Include="Cls_Consulta_sql.cs" />
     <Compile Include="ConstruccionesJAQDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConstruccionesJAQDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Frm_Personal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Frm_Personal.Designer.cs">
+      <DependentUpon>Frm_Personal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Contractos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Contractos.Designer.cs">
+      <DependentUpon>Frm_Contractos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu.Designer.cs">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_Personal.resx">
+      <DependentUpon>Frm_Personal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Contractos.resx">
+      <DependentUpon>Frm_Contractos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

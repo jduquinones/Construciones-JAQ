@@ -66,5 +66,15 @@ namespace Construcciones_JAQ
             txtCorreoP.Text = "";
             txtDireccionP.Text = "";
         }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

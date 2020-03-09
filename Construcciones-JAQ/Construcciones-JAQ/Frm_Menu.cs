@@ -17,29 +17,9 @@ namespace Construcciones_JAQ
             InitializeComponent();
         }
 
-        private void Splitter1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
+        private void Btn_Personal_Click(object sender, EventArgs e) => new Frm_Personal().Show();
 
-        }
+        private void Btn_contracto_Click(object sender, EventArgs e) => new Frm_Contractos().Show();        
 
-        private void NotifyIcon2_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Lbl_Usuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SplitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Btn_contracto_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -32,13 +32,39 @@ namespace Construcciones_JAQ
             ConsultaContracto = new Cls_Consulta_Contractos();
             ConsultaContracto.agregar(Convert.ToInt32(txt_Nit.Text), txt_Razon_Social.Text, txt_encargado.Text, Convert.ToInt64(txtTelefono.Text), Convert.ToDateTime(dtp_fecha_ini_contracto.Value), txtCorreo.Text, txtDireccion.Text, txt_nombre_obra.Text);
             ConsultaContracto.ver(dtgvContracto);
-            txt_Nit.Text = "";
-            txt_Razon_Social.Text = "";
-            txt_encargado.Text = "";
-            txtTelefono.Text = "";
-            dtp_fecha_ini_contracto.Text = "";
-            txtCorreo.Text = "";
-            txtDireccion.Text = "";
+            limpiar_campos();
+
+            //txt_Nit.Text = "";
+            //txt_Razon_Social.Text = "";
+            //txt_encargado.Text = "";
+            //txtTelefono.Text = "";
+            //dtp_fecha_ini_contracto.Text = "";
+            //txtCorreo.Text = "";
+            //txtDireccion.Text = "";
+        }
+
+        private void limpiar_campos()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+
+                    this.txt_Nit.Focus();
+                }
+            }
+
+
+            //foreach (Control c in Controls)
+            //{
+            //    if (c is ComboBox)
+            //    {
+            //        ComboBox cmb = c as ComboBox;
+            //        cmb.DataSource = null;
+            //        cmb.Items.Clear();
+            //    }
+            //}
         }
     }
 }

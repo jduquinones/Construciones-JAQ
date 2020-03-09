@@ -19,6 +19,38 @@ namespace Construcciones_JAQ
         SqlCommand cm;
         SqlDataAdapter da;
 
+
+
+        private int cedua;
+        private string nombre;
+        private int telefono;
+        private DateTime fecha_nacimiento;
+        private string estado_civil;
+        private string correo;
+        private string direccion;
+        private int hijos;
+        private string contraseña;
+        private string confirmar_contraseña;
+        private string tipo_usuario;
+
+        private string area;
+
+
+        public int Cedua { get => cedua; set => cedua = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public int Telefono { get => telefono; set => telefono = value; }
+        public DateTime Fecha_nacimiento { get => fecha_nacimiento; set => fecha_nacimiento = value; }
+        public string Estado_civil { get => estado_civil; set => estado_civil = value; }
+        public string Correo { get => correo; set => correo = value; }
+        public string Direccion { get => direccion; set => direccion = value; }
+        public int Hijos { get => hijos; set => hijos = value; }
+        public string Contraseña { get => contraseña; set => contraseña = value; }
+        public string Area { get => area; set => area = value; }
+        public string Confirmar_contraseña { get => confirmar_contraseña; set => confirmar_contraseña = value; }
+        public string Tipo_usuario { get => tipo_usuario; set => tipo_usuario = value; }
+
+
+
         //ver Contractos
         public void ver(DataGridView dgv)
         {

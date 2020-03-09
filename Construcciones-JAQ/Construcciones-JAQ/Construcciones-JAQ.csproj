@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cls_Consulta_Contractos.cs" />
-    <Compile Include="Cls_Consulta_sql.cs" />
+    <Compile Include="Cls_Consulta_Personal.cs" />
+    <Compile Include="Cls_Consulta_Usuarioa.cs" />
+    <Compile Include="Cls_Consulta_Validaciones.cs" />
     <Compile Include="ConstruccionesJAQDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,6 +86,12 @@
     <Compile Include="Frm_Menu.Designer.cs">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Usuarios.Designer.cs">
+      <DependentUpon>Frm_Usuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Usuarios.resx">
+      <DependentUpon>Frm_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -37,6 +37,7 @@
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestioDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_Control_Nomina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -53,6 +54,7 @@
             this.btn_Salir.TabIndex = 10;
             this.btn_Salir.Text = "SALIR";
             this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
             // 
             // btn_contracto
             // 
@@ -115,6 +117,7 @@
             this.gestioDeUsuarioToolStripMenuItem.Name = "gestioDeUsuarioToolStripMenuItem";
             this.gestioDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.gestioDeUsuarioToolStripMenuItem.Text = "Gestio de Usuario";
+            this.gestioDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.GestioDeUsuarioToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -124,6 +127,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_Control_Nomina);
             this.splitContainer1.Panel1.Controls.Add(this.lbl_Usuario);
             this.splitContainer1.Panel1.Controls.Add(this.btn_contracto);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Salir);
@@ -135,6 +139,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(810, 437);
             this.splitContainer1.SplitterDistance = 270;
             this.splitContainer1.TabIndex = 13;
+            // 
+            // btn_Control_Nomina
+            // 
+            this.btn_Control_Nomina.Location = new System.Drawing.Point(20, 193);
+            this.btn_Control_Nomina.Name = "btn_Control_Nomina";
+            this.btn_Control_Nomina.Size = new System.Drawing.Size(96, 67);
+            this.btn_Control_Nomina.TabIndex = 11;
+            this.btn_Control_Nomina.Text = "NOMINA";
+            this.btn_Control_Nomina.UseVisualStyleBackColor = true;
+            this.btn_Control_Nomina.Click += new System.EventHandler(this.Btn_Control_Nomina_Click);
             // 
             // Frm_Menu
             // 
@@ -170,5 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestioDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btn_Control_Nomina;
     }
 }

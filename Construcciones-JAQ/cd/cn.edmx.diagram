@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9818c670261248049ea266554486dc4a" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Contractos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Educacion" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Familiar" Width="1.5" PointX="2.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Informacion_General" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Personal" Width="2.375" PointX="13.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.SeguridadSocial" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.TipoContratacion" Width="2" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Trabajadores" Width="1.5" PointX="11.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Trabajo_Contracto" Width="1.875" PointX="8.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstruccionesJAQModel.Usuarios" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ConstruccionesJAQModel.FK_Contractos_TipoContratacion" />
+        <AssociationConnector Association="ConstruccionesJAQModel.fk_IdContracto" />
+        <AssociationConnector Association="ConstruccionesJAQModel.fk_IdEducacion" />
+        <AssociationConnector Association="ConstruccionesJAQModel.FK_Personal_Familiar" />
+        <AssociationConnector Association="ConstruccionesJAQModel.FK_Personal_Informacion_General" />
+        <AssociationConnector Association="ConstruccionesJAQModel.fk_IdTrabajador" />
+        <AssociationConnector Association="ConstruccionesJAQModel.FK_Personal_Usuarios1" />
+        <AssociationConnector Association="ConstruccionesJAQModel.fk_IdSeguridadSocial" />
+        <AssociationConnector Association="ConstruccionesJAQModel.FK_Trabajo_Contracto_Trabajadores" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

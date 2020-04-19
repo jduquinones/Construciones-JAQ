@@ -13,6 +13,7 @@ namespace Construcciones_JAQ
     public partial class Frm_Login : Form
     {
         Cls_Consulta_Usuarioa consulta;
+        Cls_Consulta_Validaciones validaciones;
         public Frm_Login()
         {
             InitializeComponent();
@@ -20,13 +21,20 @@ namespace Construcciones_JAQ
 
         private void Btn_Apcetar_login_Click(object sender, EventArgs e)
         {
-            consulta = new Cls_Consulta_Usuarioa();
-            consulta.login(Convert.ToInt32(txt_usuario.Text), txt_contraseña.Text);
+            try
+            {
+                consulta = new Cls_Consulta_Usuarioa();
+                validaciones = new Cls_Consulta_Validaciones();
+                consulta.login(Convert.ToInt32(txt_usuario.Text), txt_contraseña.Text);
+                validaciones.limpiar_campos(panel_Login);
+                this.txt_usuario.Focus();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo llamar al datagridviw", ex.ToString());
 
-            limpiar_campos();
-            //txt_usuario.Text = "";
-            //txt_contraseña.Text = "";               
-
+            }
         }
 
         private void Btn_cancelar_login_Click(object sender, EventArgs e)
@@ -34,18 +42,5 @@ namespace Construcciones_JAQ
             Application.Exit();
         }
 
-        private void limpiar_campos()
-        {
-            foreach (Control c in this.Controls)
-            {
-                if (c is TextBox)
-                {
-                    c.Text = "";
-
-                    this.txt_usuario.Focus();
-                }
-            }
-
-        }
     }
 }

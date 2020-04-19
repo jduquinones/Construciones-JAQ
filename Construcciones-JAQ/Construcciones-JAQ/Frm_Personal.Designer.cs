@@ -47,6 +47,9 @@
             this.labelApellidos = new System.Windows.Forms.Label();
             this.dtgvPersonal = new System.Windows.Forms.DataGridView();
             this.panel_personal = new System.Windows.Forms.Panel();
+            this.txt_Edad = new System.Windows.Forms.TextBox();
+            this.lbl_Edad = new System.Windows.Forms.Label();
+            this.cmb_Estado_civil = new System.Windows.Forms.ComboBox();
             this.cmb_Arl = new System.Windows.Forms.ComboBox();
             this.lbl_Arl = new System.Windows.Forms.Label();
             this.cmb_Eps = new System.Windows.Forms.ComboBox();
@@ -62,11 +65,9 @@
             this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Seleccionar = new System.Windows.Forms.Button();
-            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Actualizar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.cmb_Estado_civil = new System.Windows.Forms.ComboBox();
-            this.lbl_Edad = new System.Windows.Forms.Label();
-            this.txt_Edad = new System.Windows.Forms.TextBox();
+            this.lbl_Id = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPersonal)).BeginInit();
             this.panel_personal.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -255,7 +256,37 @@
             this.panel_personal.Name = "panel_personal";
             this.panel_personal.Size = new System.Drawing.Size(1020, 232);
             this.panel_personal.TabIndex = 34;
-            this.panel_personal.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_personal_Paint);
+            // 
+            // txt_Edad
+            // 
+            this.txt_Edad.Location = new System.Drawing.Point(399, 127);
+            this.txt_Edad.Name = "txt_Edad";
+            this.txt_Edad.ReadOnly = true;
+            this.txt_Edad.Size = new System.Drawing.Size(65, 20);
+            this.txt_Edad.TabIndex = 51;
+            // 
+            // lbl_Edad
+            // 
+            this.lbl_Edad.AutoSize = true;
+            this.lbl_Edad.Location = new System.Drawing.Point(347, 134);
+            this.lbl_Edad.Name = "lbl_Edad";
+            this.lbl_Edad.Size = new System.Drawing.Size(32, 13);
+            this.lbl_Edad.TabIndex = 50;
+            this.lbl_Edad.Text = "Edad";
+            // 
+            // cmb_Estado_civil
+            // 
+            this.cmb_Estado_civil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Estado_civil.FormattingEnabled = true;
+            this.cmb_Estado_civil.Items.AddRange(new object[] {
+            "CASADO",
+            "SOLTERO",
+            "VIUDO",
+            "SEPARADO"});
+            this.cmb_Estado_civil.Location = new System.Drawing.Point(830, 75);
+            this.cmb_Estado_civil.Name = "cmb_Estado_civil";
+            this.cmb_Estado_civil.Size = new System.Drawing.Size(167, 21);
+            this.cmb_Estado_civil.TabIndex = 49;
             // 
             // cmb_Arl
             // 
@@ -417,6 +448,7 @@
             // 
             // cmb_Obra_agsinado
             // 
+            this.cmb_Obra_agsinado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Obra_agsinado.FormattingEnabled = true;
             this.cmb_Obra_agsinado.Location = new System.Drawing.Point(682, 130);
             this.cmb_Obra_agsinado.Name = "cmb_Obra_agsinado";
@@ -453,7 +485,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btn_Seleccionar);
-            this.panel2.Controls.Add(this.btn_Modificar);
+            this.panel2.Controls.Add(this.btn_Actualizar);
             this.panel2.Controls.Add(this.btn_Eliminar);
             this.panel2.Controls.Add(this.btnAgregarP);
             this.panel2.Location = new System.Drawing.Point(47, 30);
@@ -471,14 +503,15 @@
             this.btn_Seleccionar.UseVisualStyleBackColor = true;
             this.btn_Seleccionar.Click += new System.EventHandler(this.Btn_Seleccionar_Click);
             // 
-            // btn_Modificar
+            // btn_Actualizar
             // 
-            this.btn_Modificar.Location = new System.Drawing.Point(208, 18);
-            this.btn_Modificar.Name = "btn_Modificar";
-            this.btn_Modificar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Modificar.TabIndex = 19;
-            this.btn_Modificar.Text = "Modificar";
-            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Actualizar.Location = new System.Drawing.Point(208, 18);
+            this.btn_Actualizar.Name = "btn_Actualizar";
+            this.btn_Actualizar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Actualizar.TabIndex = 19;
+            this.btn_Actualizar.Text = "Actualizar";
+            this.btn_Actualizar.UseVisualStyleBackColor = true;
+            this.btn_Actualizar.Click += new System.EventHandler(this.Btn_Actualizar_Click);
             // 
             // btn_Eliminar
             // 
@@ -490,42 +523,22 @@
             this.btn_Eliminar.UseVisualStyleBackColor = true;
             this.btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
-            // cmb_Estado_civil
+            // lbl_Id
             // 
-            this.cmb_Estado_civil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Estado_civil.FormattingEnabled = true;
-            this.cmb_Estado_civil.Items.AddRange(new object[] {
-            "CASADO",
-            "SOLTERO",
-            "VIUDO",
-            "SEPARADO"});
-            this.cmb_Estado_civil.Location = new System.Drawing.Point(830, 75);
-            this.cmb_Estado_civil.Name = "cmb_Estado_civil";
-            this.cmb_Estado_civil.Size = new System.Drawing.Size(167, 21);
-            this.cmb_Estado_civil.TabIndex = 49;
-            // 
-            // lbl_Edad
-            // 
-            this.lbl_Edad.AutoSize = true;
-            this.lbl_Edad.Location = new System.Drawing.Point(347, 134);
-            this.lbl_Edad.Name = "lbl_Edad";
-            this.lbl_Edad.Size = new System.Drawing.Size(32, 13);
-            this.lbl_Edad.TabIndex = 50;
-            this.lbl_Edad.Text = "Edad";
-            // 
-            // txt_Edad
-            // 
-            this.txt_Edad.Location = new System.Drawing.Point(399, 127);
-            this.txt_Edad.Name = "txt_Edad";
-            this.txt_Edad.ReadOnly = true;
-            this.txt_Edad.Size = new System.Drawing.Size(65, 20);
-            this.txt_Edad.TabIndex = 51;
+            this.lbl_Id.AutoSize = true;
+            this.lbl_Id.Location = new System.Drawing.Point(471, 54);
+            this.lbl_Id.Name = "lbl_Id";
+            this.lbl_Id.Size = new System.Drawing.Size(35, 13);
+            this.lbl_Id.TabIndex = 36;
+            this.lbl_Id.Text = "Id_sql";
+            this.lbl_Id.Visible = false;
             // 
             // Frm_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1149, 673);
+            this.Controls.Add(this.lbl_Id);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_personal);
             this.Controls.Add(this.dtgvPersonal);
@@ -565,7 +578,7 @@
         private System.Windows.Forms.DataGridView dtgvPersonal;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Eliminar;
-        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Actualizar;
         private System.Windows.Forms.Button btn_Seleccionar;
         private System.Windows.Forms.Label Lbl_ObraAgsinado;
         private System.Windows.Forms.ComboBox cmb_Obra_agsinado;
@@ -581,6 +594,7 @@
         private System.Windows.Forms.TextBox txt_Edad;
         private System.Windows.Forms.Label lbl_Edad;
         private System.Windows.Forms.ComboBox cmb_Estado_civil;
+        private System.Windows.Forms.Label lbl_Id;
     }
 }
 

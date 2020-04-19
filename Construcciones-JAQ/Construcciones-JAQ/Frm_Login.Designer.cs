@@ -36,6 +36,8 @@
             this.lbl_contraseña = new System.Windows.Forms.Label();
             this.lbl_construccionesjaq = new System.Windows.Forms.Label();
             this.btn_cancelar_login = new System.Windows.Forms.Button();
+            this.panel_Login = new System.Windows.Forms.Panel();
+            this.panel_Login.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Apcetar_login
@@ -50,14 +52,14 @@
             // 
             // txt_usuario
             // 
-            this.txt_usuario.Location = new System.Drawing.Point(86, 160);
+            this.txt_usuario.Location = new System.Drawing.Point(34, 25);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(121, 20);
             this.txt_usuario.TabIndex = 2;
             // 
             // txt_contraseña
             // 
-            this.txt_contraseña.Location = new System.Drawing.Point(86, 242);
+            this.txt_contraseña.Location = new System.Drawing.Point(34, 107);
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.Size = new System.Drawing.Size(121, 20);
             this.txt_contraseña.TabIndex = 3;
@@ -74,7 +76,7 @@
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(124, 144);
+            this.lbl_usuario.Location = new System.Drawing.Point(72, 9);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(56, 13);
             this.lbl_usuario.TabIndex = 5;
@@ -83,7 +85,7 @@
             // lbl_contraseña
             // 
             this.lbl_contraseña.AutoSize = true;
-            this.lbl_contraseña.Location = new System.Drawing.Point(112, 206);
+            this.lbl_contraseña.Location = new System.Drawing.Point(60, 71);
             this.lbl_contraseña.Name = "lbl_contraseña";
             this.lbl_contraseña.Size = new System.Drawing.Size(81, 13);
             this.lbl_contraseña.TabIndex = 6;
@@ -108,22 +110,33 @@
             this.btn_cancelar_login.UseVisualStyleBackColor = true;
             this.btn_cancelar_login.Click += new System.EventHandler(this.Btn_cancelar_login_Click);
             // 
+            // panel_Login
+            // 
+            this.panel_Login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Login.Controls.Add(this.txt_usuario);
+            this.panel_Login.Controls.Add(this.txt_contraseña);
+            this.panel_Login.Controls.Add(this.lbl_usuario);
+            this.panel_Login.Controls.Add(this.lbl_contraseña);
+            this.panel_Login.Location = new System.Drawing.Point(46, 109);
+            this.panel_Login.Name = "panel_Login";
+            this.panel_Login.Size = new System.Drawing.Size(200, 150);
+            this.panel_Login.TabIndex = 9;
+            // 
             // Frm_Login
             // 
             this.AcceptButton = this.btn_Apcetar_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 372);
+            this.ClientSize = new System.Drawing.Size(302, 345);
+            this.Controls.Add(this.panel_Login);
             this.Controls.Add(this.btn_cancelar_login);
             this.Controls.Add(this.lbl_construccionesjaq);
-            this.Controls.Add(this.lbl_contraseña);
-            this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.lbl_INGRESO);
-            this.Controls.Add(this.txt_contraseña);
-            this.Controls.Add(this.txt_usuario);
             this.Controls.Add(this.btn_Apcetar_login);
             this.Name = "Frm_Login";
             this.Text = "INGRESO USUARIO";
+            this.panel_Login.ResumeLayout(false);
+            this.panel_Login.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +152,6 @@
         private System.Windows.Forms.Label lbl_contraseña;
         private System.Windows.Forms.Label lbl_construccionesjaq;
         private System.Windows.Forms.Button btn_cancelar_login;
+        private System.Windows.Forms.Panel panel_Login;
     }
 }

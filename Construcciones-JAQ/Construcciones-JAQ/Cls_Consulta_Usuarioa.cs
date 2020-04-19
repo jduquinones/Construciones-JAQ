@@ -13,7 +13,7 @@ namespace Construcciones_JAQ
 {
     class Cls_Consulta_Usuarioa
     {
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
+        SqlConnection cn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;
@@ -70,12 +70,13 @@ namespace Construcciones_JAQ
                 else
                 {
                     MessageBox.Show("Usuario y/o Contraseña invalidos");
+                    
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error", ex.ToString());
+                MessageBox.Show("error" + ex.ToString());
             }
         }
 

@@ -12,12 +12,13 @@ namespace Construcciones_JAQ
 {
     class Cls_Consulta_Personal
     {
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
+        SqlConnection cn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;
-               
+        SqlDataReader dr;
 
+        private Int64 id;
         private int cedula;
         private string nombre;
         private string apellido;
@@ -31,7 +32,7 @@ namespace Construcciones_JAQ
         private string eps;
         private string arl;
         private string obra_agsinado;
-        private Int64 salario;
+        private decimal salario;
 
                
         public int Cedula { get => cedula; set => cedula = value; }
@@ -47,7 +48,8 @@ namespace Construcciones_JAQ
         public string Eps { get => eps; set => eps = value; }
         public string Arl { get => arl; set => arl = value; }
         public string Obra_agsinado { get => obra_agsinado; set => obra_agsinado = value; }
-        public Int64 Salario { get => salario; set => salario = value; }
+        public decimal Salario { get => salario; set => salario = value; }
+        public long Id { get => id; set => id = value; }
 
 
 
@@ -102,7 +104,7 @@ namespace Construcciones_JAQ
         }
 
         //agregar personal
-        public void agregar(Int32 cedula, string nombre, string apellido, Int64 telefono, Int64 salario, string correo, string direccion, DateTime fecha_nacimiento, string estado_civil, string hijos, string eps, string arl, string obra_agsinado)
+        public void agregar(Int32 cedula, string nombre, string apellido, Int64 telefono, decimal salario, string correo, string direccion, DateTime fecha_nacimiento, string estado_civil, string hijos, string eps, string arl, string obra_agsinado)
         {
             Cedula = cedula;
             Nombre = nombre;
@@ -123,7 +125,9 @@ namespace Construcciones_JAQ
 
             try
             {                
-                cm = new SqlCommand("insert into Personal(Cedula, Nombre, Apellido, Telefono, Salario, Correo, Direccion, Fecha_Nacimiento, Estado_Civil, Hijos, EPS, ARL, Obra_Agsinado) values (@Cedula, @Nombre, @Apellido, @Telefono, @Salario, @Correo, @Direccion, @Fecha_Nacimiento, @Estado_Civil, @Hijos, @EPS, @ARL, @Obra_Agsinado)", cn); 
+                cm = new SqlCommand("insert into Personal(Cedula, Nombre, Apellido, Telefono, Salario, Correo, Direccion, Fecha_Nacimiento, Estado_Civil, Hijos, EPS, ARL, Obra_Agsinado)" +
+                    " values (@Cedula, @Nombre, @Apellido, @Telefono, @Salario, @Correo, @Direccion, @Fecha_Nacimiento, @Estado_Civil, @Hijos, @EPS, @ARL, @Obra_Agsinado)", cn); 
+
                 cm.Parameters.AddWithValue("@Cedula", Cedula);
                 cm.Parameters.AddWithValue("@Nombre", Nombre);
                 cm.Parameters.AddWithValue("@Apellido", Apellido);
@@ -161,19 +165,7 @@ namespace Construcciones_JAQ
             }
             cn.Close();            
         }
-
-        public void seleccionar()
-        {
-            cm = new SqlCommand(string.Format("select * from  Personal where  Cedula = @Cedula"),cn);
-            SqlDataReader dr = cm.ExecuteReader();
-
-            while (dr.Read())
-            {
-                Frm_Personal seleccionar = new Frm_Personal();
-                seleccionar.txtCedulaP.Text = Convert.ToString(dr.GetInt32(0));
-                
-            }
-        }
+   
         
         public int valor_edad(DateTime fecha_nacimiento)
         {
@@ -190,5 +182,76 @@ namespace Construcciones_JAQ
 
 
         }
+    
+        public void update(Int64 id, Int32 cedula, string nombre, string apellido, Int64 telefono, decimal salario, string correo, string direccion, DateTime fecha_nacimiento,
+            string estado_civil, string hijos, string eps, string arl, string obra_agsinado)
+
+        {
+            Id = id;
+            Cedula = cedula;
+            Nombre = nombre;
+            Apellido = apellido;
+            Telefono = telefono;
+            Salario = salario;
+            Correo = correo;
+            Direccion = direccion;
+            Fecha_nacimiento = fecha_nacimiento;
+            Estado_civil = estado_civil;
+            Hijos = hijos;
+            Eps = eps;
+            Arl = arl;
+            Obra_agsinado = obra_agsinado;
+
+            cn.Open();
+
+            try
+            {
+                cm = new SqlCommand("update Personal set  Cedula = @Cedula, Nombre = @Nombre, Apellido = @Apellido, Telefono = @Telefono, Salario = @Salario , Correo = @Correo, Direccion = @Direccion," +
+                    " Fecha_Nacimiento = @Fecha_Nacimiento, Estado_Civil = @Estado_Civil, Hijos = @Hijos, EPS = @EPS, ARL = @ARL, Obra_Agsinado = @Obra_Agsinado where Id = @Id", cn);
+                cm.Parameters.AddWithValue("@Id", Id);
+                cm.Parameters.AddWithValue("@Cedula", Cedula);                
+                cm.Parameters.AddWithValue("@Nombre", Nombre);
+                cm.Parameters.AddWithValue("@Apellido", Apellido);
+                cm.Parameters.AddWithValue("@Telefono", Telefono);
+                cm.Parameters.AddWithValue("@Salario", Salario);
+                cm.Parameters.AddWithValue("@Correo", Correo);
+                cm.Parameters.AddWithValue("@Direccion", Direccion);
+                cm.Parameters.AddWithValue("@Fecha_Nacimiento", Fecha_nacimiento);
+                cm.Parameters.AddWithValue("@Estado_Civil", Estado_civil);
+                cm.Parameters.AddWithValue("@Hijos", Hijos);
+                cm.Parameters.AddWithValue("@EPS", Eps);
+                cm.Parameters.AddWithValue("@ARL", Arl);
+                cm.Parameters.AddWithValue("@Obra_Agsinado", Obra_agsinado);
+                cm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se actualizo: " + ex.ToString());
+            }
+            cn.Close();
+        }
+
+        public void llenar_cmb(ComboBox obra_agsinado)
+        {
+            cn.Open();
+            try
+            {
+                cm = new SqlCommand("select Mano_Obra from Contracto",cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    obra_agsinado.Items.Add(dr["Mano_Obra"].ToString());
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se lleno el combobox: " + ex.ToString());
+            }
+            cn.Close();
+        }
+      
     }
+    
 }

@@ -14,40 +14,33 @@ namespace Construcciones_JAQ
     class Cls_Consulta_Contractos
     {
 
-        SqlConnection cn = new SqlConnection("Data Source=PC\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");     
+        SqlConnection cn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ConstruccionesJAQ;Integrated Security=True");     
         DataTable dt;
         SqlCommand cm;
         SqlDataAdapter da;
 
 
-
-        private int cedua;
-        private string nombre;
-        private int telefono;
-        private DateTime fecha_nacimiento;
-        private string estado_civil;
+        private int nit;
+        private string razon_social;
+        private string encargado;
+        private Int64 telefono;
+        private DateTime fecha_Inicial;
         private string correo;
         private string direccion;
-        private int hijos;
-        private string contraseña;
-        private string confirmar_contraseña;
-        private string tipo_usuario;
-
-        private string area;
+        private string mano_obra;
+        private int n_contracto;
 
 
-        public int Cedua { get => cedua; set => cedua = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public int Telefono { get => telefono; set => telefono = value; }
-        public DateTime Fecha_nacimiento { get => fecha_nacimiento; set => fecha_nacimiento = value; }
-        public string Estado_civil { get => estado_civil; set => estado_civil = value; }
+        public int Nit { get => nit; set => nit = value; }
+        public string Razon_social { get => razon_social; set => razon_social = value; }
+        public string Encargado { get => encargado; set => encargado = value; }
+        public long Telefono { get => telefono; set => telefono = value; }
+        public DateTime Fecha_Inicial { get => fecha_Inicial; set => fecha_Inicial = value; }
         public string Correo { get => correo; set => correo = value; }
         public string Direccion { get => direccion; set => direccion = value; }
-        public int Hijos { get => hijos; set => hijos = value; }
-        public string Contraseña { get => contraseña; set => contraseña = value; }
-        public string Area { get => area; set => area = value; }
-        public string Confirmar_contraseña { get => confirmar_contraseña; set => confirmar_contraseña = value; }
-        public string Tipo_usuario { get => tipo_usuario; set => tipo_usuario = value; }
+        public string Mano_obra { get => mano_obra; set => mano_obra = value; }
+        public int N_contracto { get => n_contracto; set => n_contracto = value; }
+        
 
 
 
@@ -97,21 +90,34 @@ namespace Construcciones_JAQ
         }
 
         //agregar Contracto
-        public void agregar(Int32 Nit, string Razon_Social, string Encargado, Int64 telefono, DateTime Fecha_Inicial, string correo, string direccion, string mano_obra)
+        public void agregar(Int32 nit, string razon_social, string encargado, Int64 telefono, DateTime fecha_inicial, string correo, string direccion, string mano_obra, int n_contracto)
         {
-            cn.Open();
+            Nit = nit;         
+            Razon_social= razon_social;
+            Encargado= encargado;
+            Telefono =telefono;
+            Fecha_Inicial = fecha_inicial;
+            Correo = correo;
+            Direccion = direccion;
+            Mano_obra = mano_obra;
+            N_contracto = n_contracto;
+
+
+        cn.Open();
             string agregado = "Datos agregados correctamente";
             try
             {
-                cm = new SqlCommand("insert into Contracto(Nit, Razon_Social, Encargado, Telefono, Fecha_Inicial, Correo, Direccion, mano_obra) values (@Nit, @Razon_Social, @Encargado, @Telefono, @Fecha_Inicial, @Correo, @Direccion, @mano_obra)", cn);
-                cm.Parameters.AddWithValue("@Nit", Convert.ToInt32(Nit));
-                cm.Parameters.AddWithValue("@Razon_Social", Razon_Social);
+                cm = new SqlCommand("insert into Contracto (Nit, Razon_Social, Encargado, Telefono, Fecha_Inicial, Correo, Direccion, Mano_obra, N_contracto)" +
+                    " values (@Nit, @Razon_Social, @Encargado, @Telefono, @Fecha_Inicial, @Correo, @Direccion, @Mano_obra, @N_contracto)", cn);
+                cm.Parameters.AddWithValue("@Nit", Nit);
+                cm.Parameters.AddWithValue("@Razon_Social", Razon_social);
                 cm.Parameters.AddWithValue("@Encargado", Encargado);
-                cm.Parameters.AddWithValue("@Telefono", Convert.ToInt64(telefono));
-                cm.Parameters.AddWithValue("@Fecha_Inicial", Convert.ToDateTime(Fecha_Inicial));
-                cm.Parameters.AddWithValue("@Correo", correo);
-                cm.Parameters.AddWithValue("@Direccion", direccion);
-                cm.Parameters.AddWithValue("@mano_obra", mano_obra);
+                cm.Parameters.AddWithValue("@Telefono", Telefono);
+                cm.Parameters.AddWithValue("@Fecha_Inicial", Fecha_Inicial);
+                cm.Parameters.AddWithValue("@Correo", Correo);
+                cm.Parameters.AddWithValue("@Direccion", Direccion);
+                cm.Parameters.AddWithValue("@Mano_obra", Mano_obra);
+                cm.Parameters.AddWithValue("@N_contracto", N_contracto);
 
                 cm.ExecuteNonQuery();
             }

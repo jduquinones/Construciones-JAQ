@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConstruccionesJAQModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contractos">
+          <Key>
+            <PropertyRef Name="IdContracto" />
+          </Key>
+          <Property Name="IdContracto" Type="int" Nullable="false" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="100" />
+          <Property Name="Encargado" Type="varchar" MaxLength="100" />
+          <Property Name="CorreoEncargado" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="bigint" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="NombreProyecto" Type="varchar" MaxLength="100" />
+          <Property Name="CostoProyecto" Type="money" />
+          <Property Name="NContracto" Type="varchar" MaxLength="100" />
+          <Property Name="NCotizacion" Type="varchar" MaxLength="100" />
+          <Property Name="NFactura" Type="varchar" MaxLength="100" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="100" />
+          <Property Name="Barrio" Type="varchar" MaxLength="100" />
+          <Property Name="Departamento" Type="varchar" MaxLength="100" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="FechaFinal" Type="date" />
+          <Property Name="IdTipoContratacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Educacion">
+          <Key>
+            <PropertyRef Name="IdEducacion" />
+          </Key>
+          <Property Name="IdEducacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoEscolaridad" Type="varchar" MaxLength="80" />
+          <Property Name="CualE" Type="varchar" MaxLength="100" />
+          <Property Name="TipoEducacoinSuperior" Type="varchar" MaxLength="80" />
+          <Property Name="CualES" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Familiar">
+          <Key>
+            <PropertyRef Name="IdFamilia" />
+          </Key>
+          <Property Name="IdFamilia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NHijos" Type="varchar" MaxLength="15" />
+          <Property Name="NombreEsposa" Type="varchar" MaxLength="100" />
+          <Property Name="ApellidoEsposa" Type="varchar" MaxLength="100" />
+          <Property Name="NombreMadre" Type="varchar" MaxLength="100" />
+          <Property Name="NombrePadre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Informacion_General">
+          <Key>
+            <PropertyRef Name="IdIGP" />
+          </Key>
+          <Property Name="IdIGP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsumeLicor" Type="char" MaxLength="2" />
+          <Property Name="FrecuenciaLicor" Type="varchar" MaxLength="50" />
+          <Property Name="Fuma" Type="char" MaxLength="2" />
+          <Property Name="FrecuenciaFuma" Type="varchar" MaxLength="50" />
+          <Property Name="RealizaDeporte" Type="char" MaxLength="2" />
+          <Property Name="CualDeporte" Type="varchar" MaxLength="50" />
+          <Property Name="FrecuenciaDeporte" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="bigint" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="bigint" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="correo" Type="varchar" MaxLength="100" />
+          <Property Name="TipoVivienda" Type="varchar" MaxLength="100" />
+          <Property Name="Estado_Civil" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_Nacimiento" Type="date" />
+          <Property Name="GrupoSanguineo" Type="varchar" MaxLength="100" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="100" />
+          <Property Name="Barrio" Type="varchar" MaxLength="10" />
+          <Property Name="Departamento" Type="varchar" MaxLength="100" />
+          <Property Name="IdFamilia" Type="int" />
+          <Property Name="IdIGP" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdEducacion" Type="int" />
+          <Property Name="IdTrabajador" Type="int" />
+        </EntityType>
+        <EntityType Name="SeguridadSocial">
+          <Key>
+            <PropertyRef Name="IdSeguridadSocial" />
+          </Key>
+          <Property Name="IdSeguridadSocial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eps" Type="varchar" MaxLength="100" />
+          <Property Name="Arl" Type="varchar" MaxLength="100" />
+          <Property Name="Efp" Type="varchar" MaxLength="100" />
+          <Property Name="CajaCompensacion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TipoContratacion">
+          <Key>
+            <PropertyRef Name="IdTipoContratacion" />
+          </Key>
+          <Property Name="IdTipoContratacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fijo" Type="varchar" MaxLength="15" />
+          <Property Name="Indefinido" Type="varchar" MaxLength="15" />
+          <Property Name="ObraLabor" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="IdTrabajador" />
+          </Key>
+          <Property Name="IdTrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="ValorDIa" Type="money" />
+          <Property Name="Cargo" Type="varchar" MaxLength="80" />
+          <Property Name="Activo" Type="char" MaxLength="2" />
+          <Property Name="FechaRetiro" Type="date" />
+          <Property Name="IdSeguridadSocial" Type="int" />
+        </EntityType>
+        <EntityType Name="Trabajo_Contracto">
+          <Key>
+            <PropertyRef Name="IdTrabajador" />
+            <PropertyRef Name="IdContracto" />
+          </Key>
+          <Property Name="IdTrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdContracto" Type="int" Nullable="false" />
+          <Property Name="DiasTrabajados" Type="char" MaxLength="18" />
+          <Property Name="Pago" Type="money" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Contractos_TipoContratacion">
+          <End Role="TipoContratacion" Type="Self.TipoContratacion" Multiplicity="1" />
+          <End Role="Contractos" Type="Self.Contractos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoContratacion">
+              <PropertyRef Name="IdTipoContratacion" />
+            </Principal>
+            <Dependent Role="Contractos">
+              <PropertyRef Name="IdTipoContratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdContracto">
+          <End Role="Contractos" Type="Self.Contractos" Multiplicity="1" />
+          <End Role="Trabajo_Contracto" Type="Self.Trabajo_Contracto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractos">
+              <PropertyRef Name="IdContracto" />
+            </Principal>
+            <Dependent Role="Trabajo_Contracto">
+              <PropertyRef Name="IdContracto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdEducacion">
+          <End Role="Educacion" Type="Self.Educacion" Multiplicity="0..1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educacion">
+              <PropertyRef Name="IdEducacion" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdEducacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdSeguridadSocial">
+          <End Role="SeguridadSocial" Type="Self.SeguridadSocial" Multiplicity="0..1" />
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeguridadSocial">
+              <PropertyRef Name="IdSeguridadSocial" />
+            </Principal>
+            <Dependent Role="Trabajadores">
+              <PropertyRef Name="IdSeguridadSocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdTrabajador">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="0..1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="IdTrabajador" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Familiar">
+          <End Role="Familiar" Type="Self.Familiar" Multiplicity="0..1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Familiar">
+              <PropertyRef Name="IdFamilia" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Informacion_General">
+          <End Role="Informacion_General" Type="Self.Informacion_General" Multiplicity="0..1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informacion_General">
+              <PropertyRef Name="IdIGP" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdIGP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Usuarios1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajo_Contracto_Trabajadores">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Trabajo_Contracto" Type="Self.Trabajo_Contracto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="IdTrabajador" />
+            </Principal>
+            <Dependent Role="Trabajo_Contracto">
+              <PropertyRef Name="IdTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConstruccionesJAQModelStoreContainer">
+          <EntitySet Name="Contractos" EntityType="Self.Contractos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Educacion" EntityType="Self.Educacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Familiar" EntityType="Self.Familiar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Informacion_General" EntityType="Self.Informacion_General" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeguridadSocial" EntityType="Self.SeguridadSocial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoContratacion" EntityType="Self.TipoContratacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajo_Contracto" EntityType="Self.Trabajo_Contracto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contractos_TipoContratacion" Association="Self.FK_Contractos_TipoContratacion">
+            <End Role="TipoContratacion" EntitySet="TipoContratacion" />
+            <End Role="Contractos" EntitySet="Contractos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdContracto" Association="Self.fk_IdContracto">
+            <End Role="Contractos" EntitySet="Contractos" />
+            <End Role="Trabajo_Contracto" EntitySet="Trabajo_Contracto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdEducacion" Association="Self.fk_IdEducacion">
+            <End Role="Educacion" EntitySet="Educacion" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdSeguridadSocial" Association="Self.fk_IdSeguridadSocial">
+            <End Role="SeguridadSocial" EntitySet="SeguridadSocial" />
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdTrabajador" Association="Self.fk_IdTrabajador">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Familiar" Association="Self.FK_Personal_Familiar">
+            <End Role="Familiar" EntitySet="Familiar" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Informacion_General" Association="Self.FK_Personal_Informacion_General">
+            <End Role="Informacion_General" EntitySet="Informacion_General" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Usuarios1" Association="Self.FK_Personal_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajo_Contracto_Trabajadores" Association="Self.FK_Trabajo_Contracto_Trabajadores">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Trabajo_Contracto" EntitySet="Trabajo_Contracto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConstruccionesJAQModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contractos">
+          <Key>
+            <PropertyRef Name="IdContracto" />
+          </Key>
+          <Property Name="IdContracto" Type="Int32" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Encargado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoEncargado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int64" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreProyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CostoProyecto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NContracto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NCotizacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NFactura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Barrio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="FechaFinal" Type="DateTime" Precision="0" />
+          <Property Name="IdTipoContratacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TipoContratacion" Relationship="ConstruccionesJAQModel.FK_Contractos_TipoContratacion" FromRole="Contractos" ToRole="TipoContratacion" />
+          <NavigationProperty Name="Trabajo_Contracto" Relationship="ConstruccionesJAQModel.fk_IdContracto" FromRole="Contractos" ToRole="Trabajo_Contracto" />
+        </EntityType>
+        <EntityType Name="Educacion">
+          <Key>
+            <PropertyRef Name="IdPersonal" />
+            <PropertyRef Name="IdEducacion" />
+          </Key>
+          <Property Name="IdPersonal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoEscolaridad" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CualE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TipoEducacoinSuperior" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CualES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdEducacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Personal" Relationship="ConstruccionesJAQModel.fk_IdEducacion" FromRole="Educacion" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Familiar">
+          <Key>
+            <PropertyRef Name="IdFamilia" />
+          </Key>
+          <Property Name="IdFamilia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NHijos" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="NombreEsposa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoEsposa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreMadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombrePadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Personal" Relationship="ConstruccionesJAQModel.FK_Personal_Familiar" FromRole="Familiar" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Informacion_General">
+          <Key>
+            <PropertyRef Name="IdIGP" />
+          </Key>
+          <Property Name="IdIGP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsumeLicor" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FrecuenciaLicor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fuma" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FrecuenciaFuma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealizaDeporte" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CualDeporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FrecuenciaDeporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Personal" Relationship="ConstruccionesJAQModel.FK_Personal_Informacion_General" FromRole="Informacion_General" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int64" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TipoVivienda" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_Civil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="GrupoSanguineo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ciuad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Barrio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdFamilia" Type="Int32" />
+          <Property Name="IdIGP" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdEducacion" Type="Int32" />
+          <Property Name="IdTrabajador" Type="Int32" />
+          <NavigationProperty Name="Educacion" Relationship="ConstruccionesJAQModel.fk_IdEducacion" FromRole="Personal" ToRole="Educacion" />
+          <NavigationProperty Name="Familiar" Relationship="ConstruccionesJAQModel.FK_Personal_Familiar" FromRole="Personal" ToRole="Familiar" />
+          <NavigationProperty Name="Informacion_General" Relationship="ConstruccionesJAQModel.FK_Personal_Informacion_General" FromRole="Personal" ToRole="Informacion_General" />
+          <NavigationProperty Name="Trabajadores" Relationship="ConstruccionesJAQModel.fk_IdTrabajador" FromRole="Personal" ToRole="Trabajadores" />
+          <NavigationProperty Name="Usuarios" Relationship="ConstruccionesJAQModel.FK_Personal_Usuarios1" FromRole="Personal" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="SeguridadSocial">
+          <Key>
+            <PropertyRef Name="IdSeguridadSocial" />
+          </Key>
+          <Property Name="IdSeguridadSocial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eps" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Arl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Efp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CajaCompensacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Trabajadores" Relationship="ConstruccionesJAQModel.fk_IdSeguridadSocial" FromRole="SeguridadSocial" ToRole="Trabajadores" />
+        </EntityType>
+        <EntityType Name="TipoContratacion">
+          <Key>
+            <PropertyRef Name="IdTipoContratacion" />
+          </Key>
+          <Property Name="IdTipoContratacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fijo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Indefinido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ObraLabor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contractos" Relationship="ConstruccionesJAQModel.FK_Contractos_TipoContratacion" FromRole="TipoContratacion" ToRole="Contractos" />
+        </EntityType>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="IdTrabajador" />
+          </Key>
+          <Property Name="IdTrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="ValorDIa" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cargo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FechaRetiro" Type="DateTime" Precision="0" />
+          <Property Name="IdSeguridadSocial" Type="Int32" />
+          <NavigationProperty Name="Personal" Relationship="ConstruccionesJAQModel.fk_IdTrabajador" FromRole="Trabajadores" ToRole="Personal" />
+          <NavigationProperty Name="SeguridadSocial" Relationship="ConstruccionesJAQModel.fk_IdSeguridadSocial" FromRole="Trabajadores" ToRole="SeguridadSocial" />
+          <NavigationProperty Name="Trabajo_Contracto" Relationship="ConstruccionesJAQModel.FK_Trabajo_Contracto_Trabajadores" FromRole="Trabajadores" ToRole="Trabajo_Contracto" />
+        </EntityType>
+        <EntityType Name="Trabajo_Contracto">
+          <Key>
+            <PropertyRef Name="IdContracto" />
+            <PropertyRef Name="IdTrabajador" />
+          </Key>
+          <Property Name="IdContracto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTrabajador" Type="Int32" Nullable="false" />
+          <Property Name="DiasTrabajados" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Name="Pago" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Contractos" Relationship="ConstruccionesJAQModel.fk_IdContracto" FromRole="Trabajo_Contracto" ToRole="Contractos" />
+          <NavigationProperty Name="Trabajadores" Relationship="ConstruccionesJAQModel.FK_Trabajo_Contracto_Trabajadores" FromRole="Trabajo_Contracto" ToRole="Trabajadores" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Personal" Relationship="ConstruccionesJAQModel.FK_Personal_Usuarios1" FromRole="Usuarios" ToRole="Personal" />
+        </EntityType>
+        <EntityContainer Name="ConstruccionesJAQEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contractos" EntityType="Self.Contractos" />
+          <EntitySet Name="Educacion" EntityType="Self.Educacion" />
+          <EntitySet Name="Familiar" EntityType="Self.Familiar" />
+          <EntitySet Name="Informacion_General" EntityType="Self.Informacion_General" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" />
+          <EntitySet Name="SeguridadSocial" EntityType="Self.SeguridadSocial" />
+          <EntitySet Name="TipoContratacion" EntityType="Self.TipoContratacion" />
+          <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
+          <EntitySet Name="Trabajo_Contracto" EntityType="Self.Trabajo_Contracto" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_Contractos_TipoContratacion" Association="ConstruccionesJAQModel.FK_Contractos_TipoContratacion">
+            <End Role="TipoContratacion" EntitySet="TipoContratacion" />
+            <End Role="Contractos" EntitySet="Contractos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdContracto" Association="ConstruccionesJAQModel.fk_IdContracto">
+            <End Role="Contractos" EntitySet="Contractos" />
+            <End Role="Trabajo_Contracto" EntitySet="Trabajo_Contracto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdEducacion" Association="ConstruccionesJAQModel.fk_IdEducacion">
+            <End Role="Educacion" EntitySet="Educacion" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Familiar" Association="ConstruccionesJAQModel.FK_Personal_Familiar">
+            <End Role="Familiar" EntitySet="Familiar" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Informacion_General" Association="ConstruccionesJAQModel.FK_Personal_Informacion_General">
+            <End Role="Informacion_General" EntitySet="Informacion_General" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdTrabajador" Association="ConstruccionesJAQModel.fk_IdTrabajador">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Usuarios1" Association="ConstruccionesJAQModel.FK_Personal_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdSeguridadSocial" Association="ConstruccionesJAQModel.fk_IdSeguridadSocial">
+            <End Role="SeguridadSocial" EntitySet="SeguridadSocial" />
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajo_Contracto_Trabajadores" Association="ConstruccionesJAQModel.FK_Trabajo_Contracto_Trabajadores">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Trabajo_Contracto" EntitySet="Trabajo_Contracto" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Contractos_TipoContratacion">
+          <End Type="ConstruccionesJAQModel.TipoContratacion" Role="TipoContratacion" Multiplicity="1" />
+          <End Type="ConstruccionesJAQModel.Contractos" Role="Contractos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoContratacion">
+              <PropertyRef Name="IdTipoContratacion" />
+            </Principal>
+            <Dependent Role="Contractos">
+              <PropertyRef Name="IdTipoContratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdContracto">
+          <End Type="ConstruccionesJAQModel.Contractos" Role="Contractos" Multiplicity="1" />
+          <End Type="ConstruccionesJAQModel.Trabajo_Contracto" Role="Trabajo_Contracto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractos">
+              <PropertyRef Name="IdContracto" />
+            </Principal>
+            <Dependent Role="Trabajo_Contracto">
+              <PropertyRef Name="IdContracto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdEducacion">
+          <End Type="ConstruccionesJAQModel.Educacion" Role="Educacion" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educacion">
+              <PropertyRef Name="IdEducacion" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdEducacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Familiar">
+          <End Type="ConstruccionesJAQModel.Familiar" Role="Familiar" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Familiar">
+              <PropertyRef Name="IdFamilia" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Informacion_General">
+          <End Type="ConstruccionesJAQModel.Informacion_General" Role="Informacion_General" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informacion_General">
+              <PropertyRef Name="IdIGP" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdIGP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdTrabajador">
+          <End Type="ConstruccionesJAQModel.Trabajadores" Role="Trabajadores" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="IdTrabajador" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Usuarios1">
+          <End Type="ConstruccionesJAQModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdSeguridadSocial">
+          <End Type="ConstruccionesJAQModel.SeguridadSocial" Role="SeguridadSocial" Multiplicity="0..1" />
+          <End Type="ConstruccionesJAQModel.Trabajadores" Role="Trabajadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeguridadSocial">
+              <PropertyRef Name="IdSeguridadSocial" />
+            </Principal>
+            <Dependent Role="Trabajadores">
+              <PropertyRef Name="IdSeguridadSocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajo_Contracto_Trabajadores">
+          <End Type="ConstruccionesJAQModel.Trabajadores" Role="Trabajadores" Multiplicity="1" />
+          <End Type="ConstruccionesJAQModel.Trabajo_Contracto" Role="Trabajo_Contracto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="IdTrabajador" />
+            </Principal>
+            <Dependent Role="Trabajo_Contracto">
+              <PropertyRef Name="IdTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConstruccionesJAQModelStoreContainer" CdmEntityContainer="ConstruccionesJAQEntities">
+          <EntitySetMapping Name="Contractos">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Contractos">
+              <MappingFragment StoreEntitySet="Contractos">
+                <ScalarProperty Name="IdContracto" ColumnName="IdContracto" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+                <ScalarProperty Name="CorreoEncargado" ColumnName="CorreoEncargado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombreProyecto" ColumnName="NombreProyecto" />
+                <ScalarProperty Name="CostoProyecto" ColumnName="CostoProyecto" />
+                <ScalarProperty Name="NContracto" ColumnName="NContracto" />
+                <ScalarProperty Name="NCotizacion" ColumnName="NCotizacion" />
+                <ScalarProperty Name="NFactura" ColumnName="NFactura" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+                <ScalarProperty Name="IdTipoContratacion" ColumnName="IdTipoContratacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educacion">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Educacion">
+              <MappingFragment StoreEntitySet="Educacion">
+                <ScalarProperty Name="IdEducacion" ColumnName="IdEducacion" />
+                <ScalarProperty Name="TipoEscolaridad" ColumnName="TipoEscolaridad" />
+                <ScalarProperty Name="CualE" ColumnName="CualE" />
+                <ScalarProperty Name="TipoEducacoinSuperior" ColumnName="TipoEducacoinSuperior" />
+                <ScalarProperty Name="CualES" ColumnName="CualES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Familiar">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Familiar">
+              <MappingFragment StoreEntitySet="Familiar">
+                <ScalarProperty Name="IdFamilia" ColumnName="IdFamilia" />
+                <ScalarProperty Name="NHijos" ColumnName="NHijos" />
+                <ScalarProperty Name="NombreEsposa" ColumnName="NombreEsposa" />
+                <ScalarProperty Name="ApellidoEsposa" ColumnName="ApellidoEsposa" />
+                <ScalarProperty Name="NombreMadre" ColumnName="NombreMadre" />
+                <ScalarProperty Name="NombrePadre" ColumnName="NombrePadre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Informacion_General">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Informacion_General">
+              <MappingFragment StoreEntitySet="Informacion_General">
+                <ScalarProperty Name="IdIGP" ColumnName="IdIGP" />
+                <ScalarProperty Name="ConsumeLicor" ColumnName="ConsumeLicor" />
+                <ScalarProperty Name="FrecuenciaLicor" ColumnName="FrecuenciaLicor" />
+                <ScalarProperty Name="Fuma" ColumnName="Fuma" />
+                <ScalarProperty Name="FrecuenciaFuma" ColumnName="FrecuenciaFuma" />
+                <ScalarProperty Name="RealizaDeporte" ColumnName="RealizaDeporte" />
+                <ScalarProperty Name="CualDeporte" ColumnName="CualDeporte" />
+                <ScalarProperty Name="FrecuenciaDeporte" ColumnName="FrecuenciaDeporte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="IdEducacion" ColumnName="IdEducacion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdIGP" ColumnName="IdIGP" />
+                <ScalarProperty Name="IdFamilia" ColumnName="IdFamilia" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="TipoVivienda" ColumnName="TipoVivienda" />
+                <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="GrupoSanguineo" ColumnName="GrupoSanguineo" />
+                <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeguridadSocial">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.SeguridadSocial">
+              <MappingFragment StoreEntitySet="SeguridadSocial">
+                <ScalarProperty Name="IdSeguridadSocial" ColumnName="IdSeguridadSocial" />
+                <ScalarProperty Name="Eps" ColumnName="Eps" />
+                <ScalarProperty Name="Arl" ColumnName="Arl" />
+                <ScalarProperty Name="Efp" ColumnName="Efp" />
+                <ScalarProperty Name="CajaCompensacion" ColumnName="CajaCompensacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoContratacion">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.TipoContratacion">
+              <MappingFragment StoreEntitySet="TipoContratacion">
+                <ScalarProperty Name="IdTipoContratacion" ColumnName="IdTipoContratacion" />
+                <ScalarProperty Name="Fijo" ColumnName="Fijo" />
+                <ScalarProperty Name="Indefinido" ColumnName="Indefinido" />
+                <ScalarProperty Name="ObraLabor" ColumnName="ObraLabor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajadores">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Trabajadores">
+              <MappingFragment StoreEntitySet="Trabajadores">
+                <ScalarProperty Name="IdSeguridadSocial" ColumnName="IdSeguridadSocial" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="ValorDIa" ColumnName="ValorDIa" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajo_Contracto">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Trabajo_Contracto">
+              <MappingFragment StoreEntitySet="Trabajo_Contracto">
+                <ScalarProperty Name="IdContracto" ColumnName="IdContracto" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="DiasTrabajados" ColumnName="DiasTrabajados" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="ConstruccionesJAQModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
